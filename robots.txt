@@ -1,0 +1,4 @@
+Sitemap: https://gtopba.github.io/sitemapindex.xml
+
+User-Agent: *
+Host: gtopba.github.io

@@ -1,87 +1,139 @@
 <!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="learning nikola">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My First Nikola Site</title>
+<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<link rel="canonical" href="https://gtopba.github.io/">
+<!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]--><link rel="prefetch" href="posts/my-first-blog-post/" type="text/html">
+</head>
 <body>
-<script src="https://unpkg.com/three@0.84"></script>
-<script src="https://unpkg.com/topojson-client@3"></script>
-<script src="https://unpkg.com/d3-array@1"></script>
-<script src="https://unpkg.com/d3-collection@1"></script>
-<script src="https://unpkg.com/d3-dispatch@1"></script>
-<script src="https://unpkg.com/d3-request@1"></script>
-<script src="https://unpkg.com/d3-timer@1"></script>
-<script>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
-var width = 960,
-    height = 960,
-    radius = 228,
-    mesh,
-    graticule,
-    scene = new THREE.Scene,
-    camera = new THREE.PerspectiveCamera(70, width / height, 1, 1000),
-    renderer = new THREE.WebGLRenderer({alpha: true});
+<!-- Menubar -->
 
-camera.position.z = 400;
-renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(width, height);
-document.body.appendChild(renderer.domElement);
+<nav class="navbar navbar-inverse navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://gtopba.github.io/">
 
-d3.json("https://unpkg.com/world-atlas@1/world/50m.json", function(error, topology) {
-  if (error) throw error;
-  scene.add(graticule = wireframe(graticule10(), new THREE.LineBasicMaterial({color: 0xaaaaaa})));
-  scene.add(mesh = wireframe(topojson.mesh(topology, topology.objects.land), new THREE.LineBasicMaterial({color: 0xff0000})));
-  d3.timer(function(t) {
-    graticule.rotation.x = mesh.rotation.x = Math.sin(t / 11000) * Math.PI / 3 - Math.PI / 2;
-    graticule.rotation.z = mesh.rotation.z = t / 10000;
-    renderer.render(scene, camera);
-  });
-});
+                <span id="blog-title">My First Nikola Site</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="archive.html">Archive</a>
+                </li>
+<li>
+<a href="categories/">Tags</a>
+                </li>
+<li>
+<a href="rss.xml">RSS feed</a>
 
-// Converts a point [longitude, latitude] in degrees to a THREE.Vector3.
-function vertex(point) {
-  var lambda = point[0] * Math.PI / 180,
-      phi = point[1] * Math.PI / 180,
-      cosPhi = Math.cos(phi);
-  return new THREE.Vector3(
-    radius * cosPhi * Math.cos(lambda),
-    radius * cosPhi * Math.sin(lambda),
-    radius * Math.sin(phi)
-  );
-}
+                
+            </li>
+</ul>
+<ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
 
-// Converts a GeoJSON MultiLineString in spherical coordinates to a THREE.LineSegments.
-function wireframe(multilinestring, material) {
-  var geometry = new THREE.Geometry;
-  multilinestring.coordinates.forEach(function(line) {
-    d3.pairs(line.map(vertex), function(a, b) {
-      geometry.vertices.push(a, b);
-    });
-  });
-  return new THREE.LineSegments(geometry, material);
-}
+    
 
-// See https://github.com/d3/d3-geo/issues/95
-function graticule10() {
-  var epsilon = 1e-6,
-      x1 = 180, x0 = -x1, y1 = 80, y0 = -y1, dx = 10, dy = 10,
-      X1 = 180, X0 = -X1, Y1 = 90, Y0 = -Y1, DX = 90, DY = 360,
-      x = graticuleX(y0, y1, 2.5), y = graticuleY(x0, x1, 2.5),
-      X = graticuleX(Y0, Y1, 2.5), Y = graticuleY(X0, X1, 2.5);
 
-  function graticuleX(y0, y1, dy) {
-    var y = d3.range(y0, y1 - epsilon, dy).concat(y1);
-    return function(x) { return y.map(function(y) { return [x, y]; }); };
-  }
+    
+<div class="postindex">
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/my-first-blog-post/" class="u-url">My First Blog Post!!!!!</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                <a href="authors/gtopba/">Gtopba</a>
+            </span></p>
+            <p class="dateline"><a href="posts/my-first-blog-post/" rel="bookmark"><time class="published dt-published" datetime="2017-07-01T02:07:37+07:00" title="2017-07-01 02:07">2017-07-01 02:07</time></a></p>
+                <p class="commentline">
+        
 
-  function graticuleY(x0, x1, dx) {
-    var x = d3.range(x0, x1 - epsilon, dx).concat(x1);
-    return function(y) { return x.map(function(x) { return [x, y]; }); };
-  }
 
-  return {
-    type: "MultiLineString",
-    coordinates: d3.range(Math.ceil(X0 / DX) * DX, X1, DX).map(X)
-        .concat(d3.range(Math.ceil(Y0 / DY) * DY, Y1, DY).map(Y))
-        .concat(d3.range(Math.ceil(x0 / dx) * dx, x1, dx).filter(function(x) { return Math.abs(x % DX) > epsilon; }).map(x))
-        .concat(d3.range(Math.ceil(y0 / dy) * dy, y1 + epsilon, dy).filter(function(y) { return Math.abs(y % DY) > epsilon; }).map(y))
-  };
-}
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <p>Write your post here.</p>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/welcome-to-nikola/" class="u-url">Welcome to Nikola</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                <a href="authors/roberto-alsina/">Roberto Alsina</a>
+            </span></p>
+            <p class="dateline"><a href="posts/welcome-to-nikola/" rel="bookmark"><time class="published dt-published" datetime="2012-03-30T23:00:00-03:00" title="2012-03-30 23:00">2012-03-30 23:00</time></a></p>
+                <p class="commentline">
+        
 
-</script>
+
+        </p>
+</div>
+    </header><div class="e-content entry-content">
+    <div>
+<div class="figure">
+<a class="reference external image-reference" href="https://farm1.staticflickr.com/138/352972944_4f9d568680_z.jpg?zz=1"><img alt="Nikola Tesla Corner by nicwest, on Flickr" class="thumbnail" src="https://farm1.staticflickr.com/138/352972944_4f9d568680.jpg"></a>
+</div>
+<p>If you can see this in a web browser, it means you managed to install Nikola,
+and build a site using it. Congratulations!</p>
+<p>Next steps:</p>
+<ul class="simple">
+<li><a class="reference external" href="pages/handbook/">Read the manual</a></li>
+<li><a class="reference external" href="https://getnikola.com">Visit the Nikola website to learn more</a></li>
+<li><a class="reference external" href="galleries/demo/">See a demo photo gallery</a></li>
+<li><a class="reference external" href="pages/listings-demo/">See a demo listing</a></li>
+<li><a class="reference external" href="pages/slides-demo/">See a demo slideshow</a></li>
+<li><a class="reference external" href="pages/dr-nikolas-vendetta/">See a demo of a longer text</a></li>
+</ul>
+<p>Send feedback to <a class="reference external" href="mailto:info@getnikola.com">info@getnikola.com</a>!</p>
+</div>
+    </div>
+    </article>
+</div>
+
+
+
+        
+
+
+
+
+
+        </div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2017         <a href="mailto:gtopba@gmail.com">Gtopba</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>
