@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gtopba (Posts about nikola)</title><link>https://gtopba.github.io/</link><description></description><atom:link href="https://gtopba.github.io/categories/nikola.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2017 &lt;a href="mailto:gtopba@gmail.com"&gt;Warut Phothiphan&lt;/a&gt; </copyright><lastBuildDate>Fri, 07 Jul 2017 21:01:25 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Deploying the static website to GitHub.</title><link>https://gtopba.github.io/posts/deploying-the-static-website-to-github/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><category>git</category><category>github</category><category>nikola</category><guid>https://gtopba.github.io/posts/deploying-the-static-website-to-github/</guid><pubDate>Thu, 06 Jul 2017 15:24:34 GMT</pubDate></item><item><title>Customizing the website.</title><link>https://gtopba.github.io/posts/customizing-the-website/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><category>bootstrap</category><category>css</category><category>nikola</category><guid>https://gtopba.github.io/posts/customizing-the-website/</guid><pubDate>Thu, 06 Jul 2017 15:23:41 GMT</pubDate></item><item><title>Generating an empty website.</title><link>https://gtopba.github.io/posts/generating-an-empty-website/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><category>nikola</category><guid>https://gtopba.github.io/posts/generating-an-empty-website/</guid><pubDate>Thu, 06 Jul 2017 15:16:58 GMT</pubDate></item><item><title>Introduction to Nikola.</title><link>https://gtopba.github.io/posts/introduction-to-nikola/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;p&gt;Nikola is a static site and blog generator written in Python. Nikola-based sites don't run any code on the server, there is no way to process user input in forms. You can have animations, slides or whatever fancy CSS3/HTML5 thingie you like. It only means all that HTML is generated already before being uploaded.&lt;/p&gt;
+&lt;p&gt;On the other hand, most "modern" websites are dynamic in the sense that the contents of the site live in a database, and are converted into HTML only when a user wants to see the page. However, on dynamic sites, every time a reader wants a page, a whole lot of database queries are made. Then a whole pile of code chews that data, and HTML is produced, which is sent to the user. All that requires CPU and memory.&lt;/p&gt;
+&lt;p&gt;On a static site, the highly optimized HTTP server reads the file from disk (or, if it's a popular file, from disk cache), and sends it to the user. You could probably serve a bazillion (technical term) page views from a phone using static sites.&lt;/p&gt;
+&lt;p&gt;Using Nikola on Windows can be a little trickier. Most tutorial out there are mostly based on Linux and MacOS. As a Windows user, I sometime failed to follow those tutorials. However, you will just have to get through it once then you will be fine. Let's get started.&lt;/p&gt;
+&lt;div class="section" id="preparing-a-development-environment"&gt;
+&lt;h2&gt;Preparing a development environment&lt;/h2&gt;
+&lt;p&gt;Nikola runs on Python. So we need to install Python and necessary modules. All the modules will be installed inside an isolated Python virtual environment with it own libraries and site-packages. Virtual environment allows you to work on more than one project separately.&lt;/p&gt;
+&lt;p&gt;Note that I am using windows. Some command-line syntax may differ from other operating systems. There are several ways to install modules on Python. If you are interested in this topic, I would reccomend you to check this out &lt;a class="reference external" href="https://www.youtube.com/user/sentdex"&gt;https://www.youtube.com/user/sentdex&lt;/a&gt;&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Download and install the latest version of Python at &lt;a class="reference external" href="https://www.python.org/downloads/release/python-361/"&gt;https://www.python.org/downloads/release/python-361/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Install virtualenv module by running this command in you terminal. In this case, the Windows command line (Start&amp;gt;cmd):&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+py -m pip install virtualenv
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Install virtualenvwrapper-win. Using the virtualenv through this wrapper is much easier:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+py -m pip install virtualenvwrapper-win
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Create a virtual environment with any name such as "nikola":&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+mkvirtualenv nikola
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Install Nikola package:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+pip install --upgrade "Nikola[extras]"
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Now you are ready to generate the first website. The next post will teach you how to genrate a static website. I would reccomend you to check out your new environment folder at C:/Users/[username]/Envs. Also learn more about the virtualenvwrapper command on their mainpage.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>nikola</category><category>virtualenv</category><guid>https://gtopba.github.io/posts/introduction-to-nikola/</guid><pubDate>Thu, 06 Jul 2017 15:13:28 GMT</pubDate></item></channel></rss>

@@ -6,19 +6,43 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>https://gtopba.github.io/categories/bootstrap.xml</loc>
+  <lastmod>2017-07-06T15:26:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://gtopba.github.io/categories/css.xml</loc>
+  <lastmod>2017-07-06T15:26:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://gtopba.github.io/categories/git.xml</loc>
+  <lastmod>2017-07-06T15:26:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://gtopba.github.io/categories/github.xml</loc>
+  <lastmod>2017-07-06T15:26:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://gtopba.github.io/categories/nikola.xml</loc>
+  <lastmod>2017-07-07T15:57:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://gtopba.github.io/categories/restructuredtext.xml</loc>
-  <lastmod>2017-07-06T04:04:00Z</lastmod>
+  <lastmod>2017-07-06T14:44:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://gtopba.github.io/categories/virtualenv.xml</loc>
+  <lastmod>2017-07-07T15:57:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/galleries/rss.xml</loc>
-  <lastmod>2017-07-06T04:04:00Z</lastmod>
+  <lastmod>2017-07-07T15:59:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/rss.xml</loc>
-  <lastmod>2017-07-06T04:04:00Z</lastmod>
+  <lastmod>2017-07-07T15:57:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/sitemap.xml</loc>
-  <lastmod>2017-07-06T04:04:00Z</lastmod>
+  <lastmod>2017-07-07T15:59:00Z</lastmod>
  </sitemap>
 </sitemapindex>

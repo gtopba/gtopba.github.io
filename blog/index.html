@@ -48,7 +48,7 @@
 <a href="../rss.xml">RSS feed</a>
                 </li>
 <li>
-<a href="../about-me/">About</a>
+<a href="../pages/about-me/">About</a>
 
                 
             </li>
@@ -70,7 +70,107 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/rst-examples/" class="u-url">reST Syntax Examples</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/deploying-the-static-website-to-github/" class="u-url">Deploying the static website to GitHub.</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Warut Phothiphan
+            </span></p>
+            <p class="dateline"><a href="../posts/deploying-the-static-website-to-github/" rel="bookmark"><time class="published dt-published" datetime="2017-07-06T22:24:34+07:00" title="2017-07-06 22:24">2017-07-06 22:24</time></a></p>
+                <p class="commentline">
+        
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <p>Write your post here.</p>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/customizing-the-website/" class="u-url">Customizing the website.</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Warut Phothiphan
+            </span></p>
+            <p class="dateline"><a href="../posts/customizing-the-website/" rel="bookmark"><time class="published dt-published" datetime="2017-07-06T22:23:41+07:00" title="2017-07-06 22:23">2017-07-06 22:23</time></a></p>
+                <p class="commentline">
+        
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <p>Write your post here.</p>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/generating-an-empty-website/" class="u-url">Generating an empty website.</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Warut Phothiphan
+            </span></p>
+            <p class="dateline"><a href="../posts/generating-an-empty-website/" rel="bookmark"><time class="published dt-published" datetime="2017-07-06T22:16:58+07:00" title="2017-07-06 22:16">2017-07-06 22:16</time></a></p>
+                <p class="commentline">
+        
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <p>Write your post here.</p>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/introduction-to-nikola/" class="u-url">Introduction to Nikola.</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Warut Phothiphan
+            </span></p>
+            <p class="dateline"><a href="../posts/introduction-to-nikola/" rel="bookmark"><time class="published dt-published" datetime="2017-07-06T22:13:28+07:00" title="2017-07-06 22:13">2017-07-06 22:13</time></a></p>
+                <p class="commentline">
+        
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div>
+<p>Nikola is a static site and blog generator written in Python. Nikola-based sites don't run any code on the server, there is no way to process user input in forms. You can have animations, slides or whatever fancy CSS3/HTML5 thingie you like. It only means all that HTML is generated already before being uploaded.</p>
+<p>On the other hand, most "modern" websites are dynamic in the sense that the contents of the site live in a database, and are converted into HTML only when a user wants to see the page. However, on dynamic sites, every time a reader wants a page, a whole lot of database queries are made. Then a whole pile of code chews that data, and HTML is produced, which is sent to the user. All that requires CPU and memory.</p>
+<p>On a static site, the highly optimized HTTP server reads the file from disk (or, if it's a popular file, from disk cache), and sends it to the user. You could probably serve a bazillion (technical term) page views from a phone using static sites.</p>
+<p>Using Nikola on Windows can be a little trickier. Most tutorial out there are mostly based on Linux and MacOS. As a Windows user, I sometime failed to follow those tutorials. However, you will just have to get through it once then you will be fine. Let's get started.</p>
+<div class="section" id="preparing-a-development-environment">
+<h2>Preparing a development environment</h2>
+<p>Nikola runs on Python. So we need to install Python and necessary modules. All the modules will be installed inside an isolated Python virtual environment with it own libraries and site-packages. Virtual environment allows you to work on more than one project separately.</p>
+<p>Note that I am using windows. Some command-line syntax may differ from other operating systems. There are several ways to install modules on Python. If you are interested in this topic, I would reccomend you to check this out <a class="reference external" href="https://www.youtube.com/user/sentdex">https://www.youtube.com/user/sentdex</a></p>
+<ol class="arabic">
+<li>
+<p class="first">Download and install the latest version of Python at <a class="reference external" href="https://www.python.org/downloads/release/python-361/">https://www.python.org/downloads/release/python-361/</a></p>
+</li>
+<li>
+<p class="first">Install virtualenv module by running this command in you terminal. In this case, the Windows command line (Start&gt;cmd):</p>
+<pre class="literal-block">
+py -m pip install virtualenv
+</pre>
+</li>
+<li>
+<p class="first">Install virtualenvwrapper-win. Using the virtualenv through this wrapper is much easier:</p>
+<pre class="literal-block">
+py -m pip install virtualenvwrapper-win
+</pre>
+</li>
+<li>
+<p class="first">Create a virtual environment with any name such as "nikola":</p>
+<pre class="literal-block">
+mkvirtualenv nikola
+</pre>
+</li>
+<li>
+<p class="first">Install Nikola package:</p>
+<pre class="literal-block">
+pip install --upgrade "Nikola[extras]"
+</pre>
+</li>
+</ol>
+<p>Now you are ready to generate the first website. The next post will teach you how to genrate a static website. I would reccomend you to check out your new environment folder at C:/Users/[username]/Envs. Also learn more about the virtualenvwrapper command on their mainpage.</p>
+</div>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/rst-examples/" class="u-url">ReST Examples</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Warut Phothiphan
@@ -195,7 +295,24 @@ They are transformed from section titles after parsing. -->
 </div>
 
 
-            <script src="../assets/js/all-nocdn.js"></script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+            <script src="../assets/js/all-nocdn.js"></script><!-- Social buttons --><div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script><!-- End of social buttons --><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("en");
     fancydates(0, "YYYY-MM-DD HH:mm");
     </script><!-- end fancy dates -->

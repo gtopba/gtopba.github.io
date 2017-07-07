@@ -7,19 +7,15 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://gtopba.github.io/</loc>
-  <lastmod>2017-07-06T04:01:00Z</lastmod>
+  <lastmod>2017-07-06T15:42:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/2017/</loc>
   <lastmod>2017-07-04T09:30:00Z</lastmod>
  </url>
  <url>
-  <loc>https://gtopba.github.io/about-me/</loc>
-  <lastmod>2017-07-04T09:35:00Z</lastmod>
- </url>
- <url>
   <loc>https://gtopba.github.io/archive.html</loc>
-  <lastmod>2017-07-06T04:04:00Z</lastmod>
+  <lastmod>2017-07-07T15:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/blog/</loc>
@@ -27,11 +23,35 @@
  </url>
  <url>
   <loc>https://gtopba.github.io/categories/</loc>
-  <lastmod>2017-07-04T09:30:00Z</lastmod>
+  <lastmod>2017-07-06T15:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/categories/bootstrap/</loc>
+  <lastmod>2017-07-06T15:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/categories/css/</loc>
+  <lastmod>2017-07-06T15:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/categories/git/</loc>
+  <lastmod>2017-07-06T15:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/categories/github/</loc>
+  <lastmod>2017-07-06T15:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/categories/nikola/</loc>
+  <lastmod>2017-07-06T15:15:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/categories/restructuredtext/</loc>
   <lastmod>2017-07-04T09:30:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/categories/virtualenv/</loc>
+  <lastmod>2017-07-06T15:26:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/galleries/</loc>
@@ -40,6 +60,38 @@
  <url>
   <loc>https://gtopba.github.io/listings/</loc>
   <lastmod>2017-07-04T09:23:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/pages/about-me/</loc>
+  <lastmod>2017-07-06T15:42:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/pages/building-website-with-nikola/</loc>
+  <lastmod>2017-07-06T15:42:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/posts/customizing-the-website/</loc>
+  <lastmod>2017-07-06T15:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/posts/deploying-the-static-website-to-github/</loc>
+  <lastmod>2017-07-06T15:26:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/posts/generating-an-empty-website/</loc>
+  <lastmod>2017-07-06T15:17:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/posts/introduction-to-nikola/</loc>
+  <lastmod>2017-07-06T15:20:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/posts/preparing-developing-environment-nikola-p1/</loc>
+  <lastmod>2017-07-06T15:14:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/posts/preparing-developing-environment/</loc>
+  <lastmod>2017-07-06T15:15:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/posts/rst-examples/</loc>
