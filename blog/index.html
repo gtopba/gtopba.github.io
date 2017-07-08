@@ -35,9 +35,17 @@
 <!-- /.navbar-header -->
         <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
             <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog <b class="caret"></b></a>
+            <ul class="dropdown-menu">
 <li class="active">
-<a href=".">Blog <span class="sr-only">(active)</span></a>
-                </li>
+<a href=".">Timeline <span class="sr-only">(active)</span></a>
+                    </li>
+<li>
+<a href="../pages/lst-ex/">List of examples</a>
+            </li>
+</ul>
+</li>
 <li>
 <a href="../archive.html">Archive</a>
                 </li>
@@ -78,6 +86,7 @@
             <p class="dateline"><a href="../posts/deploying-the-static-website-to-github/" rel="bookmark"><time class="published dt-published" datetime="2017-07-06T22:24:34+07:00" title="2017-07-06 22:24">2017-07-06 22:24</time></a></p>
                 <p class="commentline">
         
+    <a href="../posts/deploying-the-static-website-to-github/#disqus_thread" data-disqus-identifier="cache/posts/deploying-the-static-website-to-github.html">Comments</a>
 
 
         </p>
@@ -93,6 +102,7 @@
             <p class="dateline"><a href="../posts/customizing-the-website/" rel="bookmark"><time class="published dt-published" datetime="2017-07-06T22:23:41+07:00" title="2017-07-06 22:23">2017-07-06 22:23</time></a></p>
                 <p class="commentline">
         
+    <a href="../posts/customizing-the-website/#disqus_thread" data-disqus-identifier="cache/posts/customizing-the-website.html">Comments</a>
 
 
         </p>
@@ -100,7 +110,7 @@
     </header><div class="p-summary entry-summary">
     <p>Write your post here.</p>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/generating-an-empty-website/" class="u-url">Generating an empty website.</a></h1>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/generating-an-empty-website/" class="u-url">An empty website and its folder structure.</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Warut Phothiphan
@@ -108,12 +118,13 @@
             <p class="dateline"><a href="../posts/generating-an-empty-website/" rel="bookmark"><time class="published dt-published" datetime="2017-07-06T22:16:58+07:00" title="2017-07-06 22:16">2017-07-06 22:16</time></a></p>
                 <p class="commentline">
         
+    <a href="../posts/generating-an-empty-website/#disqus_thread" data-disqus-identifier="cache/posts/generating-an-empty-website.html">Comments</a>
 
 
         </p>
 </div>
     </header><div class="p-summary entry-summary">
-    <p>Write your post here.</p>
+    <p>Coming soon.</p>
     </div>
     </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/introduction-to-nikola/" class="u-url">Introduction to Nikola.</a></h1>
         <div class="metadata">
@@ -123,6 +134,7 @@
             <p class="dateline"><a href="../posts/introduction-to-nikola/" rel="bookmark"><time class="published dt-published" datetime="2017-07-06T22:13:28+07:00" title="2017-07-06 22:13">2017-07-06 22:13</time></a></p>
                 <p class="commentline">
         
+    <a href="../posts/introduction-to-nikola/#disqus_thread" data-disqus-identifier="cache/posts/preparing-developing-environment-nikola-p1.html">Comments</a>
 
 
         </p>
@@ -130,147 +142,7 @@
     </header><div class="p-summary entry-summary">
     <div>
 <p>Nikola is a static site and blog generator written in Python. Nikola-based sites don't run any code on the server, there is no way to process user input in forms. You can have animations, slides or whatever fancy CSS3/HTML5 thingie you like. It only means all that HTML is generated already before being uploaded.</p>
-<p>On the other hand, most "modern" websites are dynamic in the sense that the contents of the site live in a database, and are converted into HTML only when a user wants to see the page. However, on dynamic sites, every time a reader wants a page, a whole lot of database queries are made. Then a whole pile of code chews that data, and HTML is produced, which is sent to the user. All that requires CPU and memory.</p>
-<p>On a static site, the highly optimized HTTP server reads the file from disk (or, if it's a popular file, from disk cache), and sends it to the user. You could probably serve a bazillion (technical term) page views from a phone using static sites.</p>
-<p>Using Nikola on Windows can be a little trickier. Most tutorial out there are mostly based on Linux and MacOS. As a Windows user, I sometime failed to follow those tutorials. However, you will just have to get through it once then you will be fine. Let's get started.</p>
-<div class="section" id="preparing-a-development-environment">
-<h2>Preparing a development environment</h2>
-<p>Nikola runs on Python. So we need to install Python and necessary modules. All the modules will be installed inside an isolated Python virtual environment with it own libraries and site-packages. Virtual environment allows you to work on more than one project separately.</p>
-<p>Note that I am using windows. Some command-line syntax may differ from other operating systems. There are several ways to install modules on Python. If you are interested in this topic, I would reccomend you to check this out <a class="reference external" href="https://www.youtube.com/user/sentdex">https://www.youtube.com/user/sentdex</a></p>
-<ol class="arabic">
-<li>
-<p class="first">Download and install the latest version of Python at <a class="reference external" href="https://www.python.org/downloads/release/python-361/">https://www.python.org/downloads/release/python-361/</a></p>
-</li>
-<li>
-<p class="first">Install virtualenv module by running this command in you terminal. In this case, the Windows command line (Start&gt;cmd):</p>
-<pre class="literal-block">
-py -m pip install virtualenv
-</pre>
-</li>
-<li>
-<p class="first">Install virtualenvwrapper-win. Using the virtualenv through this wrapper is much easier:</p>
-<pre class="literal-block">
-py -m pip install virtualenvwrapper-win
-</pre>
-</li>
-<li>
-<p class="first">Create a virtual environment with any name such as "nikola":</p>
-<pre class="literal-block">
-mkvirtualenv nikola
-</pre>
-</li>
-<li>
-<p class="first">Install Nikola package:</p>
-<pre class="literal-block">
-pip install --upgrade "Nikola[extras]"
-</pre>
-</li>
-</ol>
-<p>Now you are ready to generate the first website. The next post will teach you how to genrate a static website. I would reccomend you to check out your new environment folder at C:/Users/[username]/Envs. Also learn more about the virtualenvwrapper command on their mainpage.</p>
-</div>
-</div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/rst-examples/" class="u-url">ReST Examples</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Warut Phothiphan
-            </span></p>
-            <p class="dateline"><a href="../posts/rst-examples/" rel="bookmark"><time class="published dt-published" datetime="2017-07-01T16:50:50+07:00" title="2017-07-01 16:50">2017-07-01 16:50</time></a></p>
-                <p class="commentline">
-        
-
-
-        </p>
-</div>
-    </header><div class="p-summary entry-summary">
-    <div>
-<table class="docinfo" frame="void" rules="none">
-<col class="docinfo-name">
-<col class="docinfo-content">
-<tbody valign="top">
-<tr>
-<th class="docinfo-name">Author:</th>
-<td>David Goodger</td>
-</tr>
-<tr>
-<th class="docinfo-name">Address:</th>
-<td>
-<pre class="address">
-123 Example Street
-Example, EX  Canada
-A1B 2C3
-</pre>
-</td>
-</tr>
-<tr>
-<th class="docinfo-name">Contact:</th>
-<td><a class="first last reference external" href="mailto:docutils-develop@lists.sourceforge.net">docutils-develop@lists.sourceforge.net</a></td>
-</tr>
-<tr>
-<th class="docinfo-name">Authors:</th>
-<td>Me
-<br>Myself
-<br>I</td>
-</tr>
-<tr>
-<th class="docinfo-name">Organization:</th>
-<td>humankind</td>
-</tr>
-<tr>
-<th class="docinfo-name">Date:</th>
-<td>2012-01-03</td>
-</tr>
-<tr>
-<th class="docinfo-name">Status:</th>
-<td>This is a "work in progress"</td>
-</tr>
-<tr>
-<th class="docinfo-name">Revision:</th>
-<td>7302</td>
-</tr>
-<tr>
-<th class="docinfo-name">Version:</th>
-<td>1</td>
-</tr>
-<tr>
-<th class="docinfo-name">Copyright:</th>
-<td>This document has been placed in the public domain. You
-may do with it as you wish. You may copy, modify,
-redistribute, reattribute, sell, buy, rent, lease,
-destroy, or improve it, quote it at length, excerpt,
-incorporate, collate, fold, staple, or mutilate it, or do
-anything else to it that your or anyone else's heart
-desires.</td>
-</tr>
-<tr class="field-name field">
-<th class="docinfo-name">field name:</th>
-<td class="field-body">This is a generic bibliographic field.</td>
-</tr>
-<tr class="field-name-2 field">
-<th class="docinfo-name">field name 2:</th>
-<td class="field-body">
-<p class="first">Generic bibliographic fields may contain multiple body elements.</p>
-<p class="last">Like this.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="dedication topic">
-<p class="topic-title first">Dedication</p>
-<p>For Docutils users &amp; co-developers.</p>
-</div>
-<div class="abstract topic">
-<p class="topic-title first">Abstract</p>
-<p>This document is a demonstration of the reStructuredText markup
-language, containing examples of all basic reStructuredText
-constructs and many advanced constructs.</p>
-</div>
-<!-- This is a comment. Note how any initial comments are moved by
-transforms to after the document title, subtitle, and docinfo. -->
-<!-- Above is the document title, and below is the subtitle.
-They are transformed from section titles after parsing. -->
-<!-- bibliographic fields (which also require a transform): -->
-<p class="more"><a href="../posts/rst-examples/">Read more…</a></p>
+<p class="more"><a href="../posts/introduction-to-nikola/">Read more…</a></p>
 </div>
     </div>
     </article>
@@ -279,12 +151,8 @@ They are transformed from section titles after parsing. -->
 
 
         
-
-
-
-
-
-        </div>
+       <script>var disqus_shortname="nikolademo";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
         <!--End of body content-->
 
         <footer id="footer">

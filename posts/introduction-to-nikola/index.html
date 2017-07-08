@@ -11,8 +11,7 @@
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
 <link rel="canonical" href="https://gtopba.github.io/posts/introduction-to-nikola/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Warut Phothiphan">
-<link rel="prev" href="../rst-examples/" title="ReST Examples" type="text/html">
-<link rel="next" href="../generating-an-empty-website/" title="Generating an empty website." type="text/html">
+<link rel="next" href="../generating-an-empty-website/" title="An empty website and its folder structure." type="text/html">
 <meta property="og:site_name" content="Gtopba">
 <meta property="og:title" content="Introduction to Nikola.">
 <meta property="og:url" content="https://gtopba.github.io/posts/introduction-to-nikola/">
@@ -44,9 +43,17 @@
 <!-- /.navbar-header -->
         <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
             <ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog <b class="caret"></b></a>
+            <ul class="dropdown-menu">
 <li>
-<a href="../../blog/">Blog</a>
-                </li>
+<a href="../../blog/">Timeline</a>
+                    </li>
+<li>
+<a href="../../pages/lst-ex/">List of examples</a>
+            </li>
+</ul>
+</li>
 <li>
 <a href="../../archive.html">Archive</a>
                 </li>
@@ -88,6 +95,7 @@
             <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2017-07-06T22:13:28+07:00" itemprop="datePublished" title="2017-07-06 22:13">2017-07-06 22:13</time></a></p>
                 <p class="commentline">
         
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/preparing-developing-environment-nikola-p1.html">Comments</a>
 
 
             
@@ -100,6 +108,7 @@
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>Nikola is a static site and blog generator written in Python. Nikola-based sites don't run any code on the server, there is no way to process user input in forms. You can have animations, slides or whatever fancy CSS3/HTML5 thingie you like. It only means all that HTML is generated already before being uploaded.</p>
+<!-- TEASER_END -->
 <p>On the other hand, most "modern" websites are dynamic in the sense that the contents of the site live in a database, and are converted into HTML only when a user wants to see the page. However, on dynamic sites, every time a reader wants a page, a whole lot of database queries are made. Then a whole pile of code chews that data, and HTML is produced, which is sent to the user. All that requires CPU and memory.</p>
 <p>On a static site, the highly optimized HTTP server reads the file from disk (or, if it's a popular file, from disk cache), and sends it to the user. You could probably serve a bazillion (technical term) page views from a phone using static sites.</p>
 <p>Using Nikola on Windows can be a little trickier. Most tutorial out there are mostly based on Linux and MacOS. As a Windows user, I sometime failed to follow those tutorials. However, you will just have to get through it once then you will be fine. Let's get started.</p>
@@ -145,18 +154,32 @@ pip install --upgrade "Nikola[extras]"
             <li><a class="tag p-category" href="../../categories/virtualenv/" rel="tag">virtualenv</a></li>
         </ul>
 <ul class="pager hidden-print">
-<li class="previous">
-                <a href="../rst-examples/" rel="prev" title="ReST Examples">Previous post</a>
-            </li>
-            <li class="next">
-                <a href="../generating-an-empty-website/" rel="next" title="Generating an empty website.">Next post</a>
+<li class="next">
+                <a href="../generating-an-empty-website/" rel="next" title="An empty website and its folder structure.">Next post</a>
             </li>
         </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
         
         
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="nikolademo",
+            disqus_url="https://gtopba.github.io/posts/introduction-to-nikola/",
+        disqus_title="Introduction to Nikola.",
+        disqus_identifier="cache/posts/preparing-developing-environment-nikola-p1.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-        </section></article>
+        </section></article><script>var disqus_shortname="nikolademo";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
 </div>
         <!--End of body content-->
 
