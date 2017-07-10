@@ -7,4 +7,7 @@
 .. description: 
 .. type: text
 
-Write your post here.
+1. Create your homepage
+2. Edid manubar
+3. Add more csschange theme
+4. Edit template

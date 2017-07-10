@@ -23,7 +23,7 @@
  </url>
  <url>
   <loc>https://gtopba.github.io/categories/</loc>
-  <lastmod>2017-07-06T15:26:00Z</lastmod>
+  <lastmod>2017-07-08T19:20:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/categories/bootstrap/</loc>
@@ -44,10 +44,6 @@
  <url>
   <loc>https://gtopba.github.io/categories/nikola/</loc>
   <lastmod>2017-07-06T15:15:00Z</lastmod>
- </url>
- <url>
-  <loc>https://gtopba.github.io/categories/restructuredtext/</loc>
-  <lastmod>2017-07-04T09:30:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/categories/virtualenv/</loc>
@@ -99,10 +95,6 @@
  </url>
  <url>
   <loc>https://gtopba.github.io/pages/creating-a-theme/</loc>
-  <lastmod>2017-07-08T18:15:00Z</lastmod>
- </url>
- <url>
-  <loc>https://gtopba.github.io/pages/dr-nikolas-vendetta/</loc>
   <lastmod>2017-07-08T18:15:00Z</lastmod>
  </url>
  <url>
@@ -172,9 +164,5 @@
  <url>
   <loc>https://gtopba.github.io/posts/introduction-to-nikola/</loc>
   <lastmod>2017-07-06T15:20:00Z</lastmod>
- </url>
- <url>
-  <loc>https://gtopba.github.io/posts/rst-examples/</loc>
-  <lastmod>2017-07-04T09:30:00Z</lastmod>
  </url>
 </urlset>

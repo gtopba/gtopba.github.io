@@ -16,7 +16,13 @@
 <meta property="og:site_name" content="Gtopba">
 <meta property="og:title" content="An empty website and its folder structure.">
 <meta property="og:url" content="https://gtopba.github.io/posts/generating-an-empty-website/">
-<meta property="og:description" content="Coming soon.">
+<meta property="og:description" content="Tip: Demo site
+You can generate a website containing demo contents in it by using --demo option:
+
+nikola init --demo my_first_site
+
+
+Now let's generate an empty site with any name such as &quot;my_first_si">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2017-07-06T22:16:58+07:00">
 <meta property="article:tag" content="nikola">
@@ -106,7 +112,77 @@
         
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <p>Coming soon.</p>
+    <div>
+<div class="sidebar">
+<p class="first sidebar-title">Tip: Demo site</p>
+<p>You can generate a website containing demo contents in it by using --demo option:</p>
+<pre class="last literal-block">
+nikola init --demo my_first_site
+</pre>
+</div>
+<p>Now let's generate an empty site with any name such as "my_first_site". Navigate your terminal to the directory that you want to put your project folder on. Then run this command and follow its instructions:</p>
+<pre class="literal-block">
+nikola init my_first_site
+</pre>
+<p>Then create your first post and it will ask you to input post title. Your post file .rst will be created in "posts" folder. We will edit the post later:</p>
+<pre class="literal-block">
+nikola new_post
+</pre>
+<p>Build your website:</p>
+<pre class="literal-block">
+nikola build
+</pre>
+<p>Let's see your empty website on the browser. The -b option will open your default web browser automatically:</p>
+<pre class="literal-block">
+nikola serve -b
+</pre>
+<p>Press Ctrl+C to stop your web server.</p>
+<div class="section" id="the-project-s-folder-structure">
+<h2>The project's folder structure.</h2>
+<p>After the initialization, you will get folder like this.</p>
+<img alt="Folder Structure" class="align-left" src="../../pic/nikola-tut/folder_struc.JPG" style="width: 267.0px; height: 235.0px;"><table border="1" class="docutils">
+<colgroup>
+<col width="13%">
+<col width="87%">
+</colgroup>
+<tbody valign="top">
+<tr>
+<td><strong>Name</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr>
+<td>files</td>
+<td>Everything in here will be copied to your output folder.</td>
+</tr>
+<tr>
+<td>galleries</td>
+<td>Put your images folder here to generate gallery page.</td>
+</tr>
+<tr>
+<td>listings</td>
+<td>Put your code here to show it. (<a class="reference external" href="../../pages/listings-demo">Learn more</a> )</td>
+</tr>
+<tr>
+<td>output</td>
+<td>Your generated website.</td>
+</tr>
+<tr>
+<td>pages</td>
+<td>All your pages are kept here.</td>
+</tr>
+<tr>
+<td>post</td>
+<td>All your posts are kept here.</td>
+</tr>
+<tr>
+<td>conf.py</td>
+<td>settings for Nikola.</td>
+</tr>
+</tbody>
+</table>
+<p>Next post, we will customize our site.</p>
+</div>
+</div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
 <li><a class="tag p-category" href="../../categories/nikola/" rel="tag">nikola</a></li>

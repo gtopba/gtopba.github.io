@@ -23,11 +23,7 @@
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/categories/nikola.xml</loc>
-  <lastmod>2017-07-08T18:51:00Z</lastmod>
- </sitemap>
- <sitemap>
-  <loc>https://gtopba.github.io/categories/restructuredtext.xml</loc>
-  <lastmod>2017-07-08T18:15:00Z</lastmod>
+  <lastmod>2017-07-10T06:30:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/categories/virtualenv.xml</loc>
@@ -43,10 +39,10 @@
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/rss.xml</loc>
-  <lastmod>2017-07-08T18:52:00Z</lastmod>
+  <lastmod>2017-07-10T06:30:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/sitemap.xml</loc>
-  <lastmod>2017-07-08T19:02:00Z</lastmod>
+  <lastmod>2017-07-10T06:30:00Z</lastmod>
  </sitemap>
 </sitemapindex>

@@ -1,3 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gtopba</title><link>https://gtopba.github.io/</link><description>As I'm getting older, my brain's memory is getting poorer. This blog is my second memory back up.</description><atom:link href="https://gtopba.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2017 &lt;a href="mailto:gtopba@gmail.com"&gt;Warut Phothiphan&lt;/a&gt; </copyright><lastBuildDate>Sat, 08 Jul 2017 18:52:01 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Deploying the static website to GitHub.</title><link>https://gtopba.github.io/posts/deploying-the-static-website-to-github/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><category>git</category><category>github</category><category>nikola</category><guid>https://gtopba.github.io/posts/deploying-the-static-website-to-github/</guid><pubDate>Thu, 06 Jul 2017 15:24:34 GMT</pubDate></item><item><title>Customizing the website.</title><link>https://gtopba.github.io/posts/customizing-the-website/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><category>bootstrap</category><category>css</category><category>nikola</category><guid>https://gtopba.github.io/posts/customizing-the-website/</guid><pubDate>Thu, 06 Jul 2017 15:23:41 GMT</pubDate></item><item><title>An empty website and its folder structure.</title><link>https://gtopba.github.io/posts/generating-an-empty-website/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;p&gt;Coming soon.&lt;/p&gt;</description><category>nikola</category><guid>https://gtopba.github.io/posts/generating-an-empty-website/</guid><pubDate>Thu, 06 Jul 2017 15:16:58 GMT</pubDate></item><item><title>Introduction to Nikola.</title><link>https://gtopba.github.io/posts/introduction-to-nikola/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;p&gt;Nikola is a static site and blog generator written in Python. Nikola-based sites don't run any code on the server, there is no way to process user input in forms. You can have animations, slides or whatever fancy CSS3/HTML5 thingie you like. It only means all that HTML is generated already before being uploaded.&lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gtopba</title><link>https://gtopba.github.io/</link><description>As I'm getting older, my brain's memory is getting poorer. This blog is my second memory back up.</description><atom:link href="https://gtopba.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2017 &lt;a href="mailto:gtopba@gmail.com"&gt;Warut Phothiphan&lt;/a&gt; </copyright><lastBuildDate>Mon, 10 Jul 2017 10:37:00 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Deploying the static website to GitHub.</title><link>https://gtopba.github.io/posts/deploying-the-static-website-to-github/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><category>git</category><category>github</category><category>nikola</category><guid>https://gtopba.github.io/posts/deploying-the-static-website-to-github/</guid><pubDate>Thu, 06 Jul 2017 15:24:34 GMT</pubDate></item><item><title>Customizing the website.</title><link>https://gtopba.github.io/posts/customizing-the-website/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;ol class="arabic simple"&gt;
+&lt;li&gt;Create your homepage&lt;/li&gt;
+&lt;li&gt;Edid manubar&lt;/li&gt;
+&lt;li&gt;Add more csschange theme&lt;/li&gt;
+&lt;li&gt;Edit template&lt;/li&gt;
+&lt;/ol&gt;</description><category>bootstrap</category><category>css</category><category>nikola</category><guid>https://gtopba.github.io/posts/customizing-the-website/</guid><pubDate>Thu, 06 Jul 2017 15:23:41 GMT</pubDate></item><item><title>An empty website and its folder structure.</title><link>https://gtopba.github.io/posts/generating-an-empty-website/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;div class="sidebar"&gt;
+&lt;p class="first sidebar-title"&gt;Tip: Demo site&lt;/p&gt;
+&lt;p&gt;You can generate a website containing demo contents in it by using --demo option:&lt;/p&gt;
+&lt;pre class="last literal-block"&gt;
+nikola init --demo my_first_site
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Now let's generate an empty site with any name such as "my_first_site". Navigate your terminal to the directory that you want to put your project folder on. Then run this command and follow its instructions:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+nikola init my_first_site
+&lt;/pre&gt;
+&lt;p&gt;Then create your first post and it will ask you to input post title. Your post file .rst will be created in "posts" folder. We will edit the post later:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+nikola new_post
+&lt;/pre&gt;
+&lt;p&gt;Build your website:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+nikola build
+&lt;/pre&gt;
+&lt;p&gt;Let's see your empty website on the browser. The -b option will open your default web browser automatically:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+nikola serve -b
+&lt;/pre&gt;
+&lt;p&gt;Press Ctrl+C to stop your web server.&lt;/p&gt;
+&lt;div class="section" id="the-project-s-folder-structure"&gt;
+&lt;h2&gt;The project's folder structure.&lt;/h2&gt;
+&lt;p&gt;After the initialization, you will get folder like this.&lt;/p&gt;
+&lt;img alt="Folder Structure" class="align-left" src="https://gtopba.github.io/pic/nikola-tut/folder_struc.JPG" style="width: 267.0px; height: 235.0px;"&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="13%"&gt;
+&lt;col width="87%"&gt;
+&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;files&lt;/td&gt;
+&lt;td&gt;Everything in here will be copied to your output folder.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;galleries&lt;/td&gt;
+&lt;td&gt;Put your images folder here to generate gallery page.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;listings&lt;/td&gt;
+&lt;td&gt;Put your code here to show it. (&lt;a class="reference external" href="https://gtopba.github.io/pages/listings-demo"&gt;Learn more&lt;/a&gt; )&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;output&lt;/td&gt;
+&lt;td&gt;Your generated website.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;pages&lt;/td&gt;
+&lt;td&gt;All your pages are kept here.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;post&lt;/td&gt;
+&lt;td&gt;All your posts are kept here.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;conf.py&lt;/td&gt;
+&lt;td&gt;settings for Nikola.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Next post, we will customize our site.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>nikola</category><guid>https://gtopba.github.io/posts/generating-an-empty-website/</guid><pubDate>Thu, 06 Jul 2017 15:16:58 GMT</pubDate></item><item><title>Introduction to Nikola.</title><link>https://gtopba.github.io/posts/introduction-to-nikola/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;p&gt;Nikola is a static site and blog generator written in Python. Nikola-based sites don't run any code on the server, there is no way to process user input in forms. You can have animations, slides or whatever fancy CSS3/HTML5 thingie you like. It only means all that HTML is generated already before being uploaded.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://gtopba.github.io/posts/introduction-to-nikola/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>nikola</category><category>virtualenv</category><guid>https://gtopba.github.io/posts/introduction-to-nikola/</guid><pubDate>Thu, 06 Jul 2017 15:13:28 GMT</pubDate></item></channel></rss>
