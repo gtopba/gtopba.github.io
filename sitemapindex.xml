@@ -7,11 +7,11 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
   <loc>https://gtopba.github.io/categories/bootstrap.xml</loc>
-  <lastmod>2017-07-08T18:15:00Z</lastmod>
+  <lastmod>2017-07-10T09:37:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/categories/css.xml</loc>
-  <lastmod>2017-07-08T18:15:00Z</lastmod>
+  <lastmod>2017-07-10T09:37:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/categories/git.xml</loc>
@@ -23,7 +23,7 @@
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/categories/nikola.xml</loc>
-  <lastmod>2017-07-10T06:30:00Z</lastmod>
+  <lastmod>2017-07-10T10:37:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/categories/virtualenv.xml</loc>
@@ -31,18 +31,18 @@
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/galleries/demo/rss.xml</loc>
-  <lastmod>2017-07-08T19:02:00Z</lastmod>
+  <lastmod>2017-07-11T01:56:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/galleries/rss.xml</loc>
-  <lastmod>2017-07-08T19:02:00Z</lastmod>
+  <lastmod>2017-07-11T01:56:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/rss.xml</loc>
-  <lastmod>2017-07-10T06:30:00Z</lastmod>
+  <lastmod>2017-07-10T10:37:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/sitemap.xml</loc>
-  <lastmod>2017-07-10T06:30:00Z</lastmod>
+  <lastmod>2017-07-11T01:56:00Z</lastmod>
  </sitemap>
 </sitemapindex>
