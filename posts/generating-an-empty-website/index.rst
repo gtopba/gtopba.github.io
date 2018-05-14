@@ -55,4 +55,8 @@ post   		  All your posts are kept here.
 conf.py       settings for Nikola.
 ============  ============
 
+|
+|
+
 Next post, we will customize our site.
+

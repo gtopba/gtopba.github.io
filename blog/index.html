@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gtopba</title>
 <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
@@ -196,6 +197,10 @@ nikola serve -b
 </tr>
 </tbody>
 </table>
+<div class="line-block">
+<div class="line"><br></div>
+<div class="line"><br></div>
+</div>
 <p>Next post, we will customize our site.</p>
 </div>
 </div>
@@ -216,7 +221,44 @@ nikola serve -b
     </header><div class="p-summary entry-summary">
     <div>
 <p>Nikola is a static site and blog generator written in Python. Nikola-based sites don't run any code on the server, there is no way to process user input in forms. You can have animations, slides or whatever fancy CSS3/HTML5 thingie you like. It only means all that HTML is generated already before being uploaded.</p>
-<p class="more"><a href="../posts/introduction-to-nikola/">Read more…</a></p>
+<p>On the other hand, most "modern" websites are dynamic in the sense that the contents of the site live in a database, and are converted into HTML only when a user wants to see the page. However, on dynamic sites, every time a reader wants a page, a whole lot of database queries are made. Then a whole pile of code chews that data, and HTML is produced, which is sent to the user. All that requires CPU and memory.</p>
+<p>On a static site, the highly optimized HTTP server reads the file from disk (or, if it's a popular file, from disk cache), and sends it to the user. You could probably serve a bazillion (technical term) page views from a phone using static sites.</p>
+<p>Using Nikola on Windows can be a little trickier. Most tutorial out there are mostly based on Linux and MacOS. As a Windows user, I sometime failed to follow those tutorials. However, you will just have to get through it once then you will be fine. Let's get started.</p>
+<div class="section" id="preparing-a-development-environment">
+<h2>Preparing a development environment</h2>
+<p>Nikola runs on Python. So we need to install Python and necessary modules. All the modules will be installed inside an isolated Python virtual environment with it own libraries and site-packages. Virtual environment allows you to work on more than one project separately.</p>
+<p>Note that I am using windows. Some command-line syntax may differ from other operating systems. There are several ways to install modules on Python. If you are interested in this topic, I would reccomend you to check this out <a class="reference external" href="https://www.youtube.com/user/sentdex">https://www.youtube.com/user/sentdex</a></p>
+<ol class="arabic">
+<li>
+<p class="first">Download and install the latest version of Python at <a class="reference external" href="https://www.python.org/downloads/release/python-361/">https://www.python.org/downloads/release/python-361/</a></p>
+</li>
+<li>
+<p class="first">Install virtualenv module by running this command in you terminal. In this case, the Windows command line (Start&gt;cmd):</p>
+<pre class="literal-block">
+py -m pip install virtualenv
+</pre>
+</li>
+<li>
+<p class="first">Install virtualenvwrapper-win. Using the virtualenv through this wrapper is much easier:</p>
+<pre class="literal-block">
+py -m pip install virtualenvwrapper-win
+</pre>
+</li>
+<li>
+<p class="first">Create a virtual environment with any name such as "nikola":</p>
+<pre class="literal-block">
+mkvirtualenv nikola
+</pre>
+</li>
+<li>
+<p class="first">Install Nikola package:</p>
+<pre class="literal-block">
+pip install --upgrade "Nikola[extras]"
+</pre>
+</li>
+</ol>
+<p>Now you are ready to generate the first website. The next post will teach you how to genrate a static website. I would reccomend you to check out your new environment folder at C:/Users/[username]/Envs. Also learn more about the virtualenvwrapper command on their mainpage.</p>
+</div>
 </div>
     </div>
     </article>
