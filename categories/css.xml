@@ -1,7 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gtopba (Posts about css)</title><link>https://gtopba.github.io/</link><description></description><atom:link href="https://gtopba.github.io/categories/css.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2018 &lt;a href="mailto:gtopba@gmail.com"&gt;Warut Phothiphan&lt;/a&gt; </copyright><lastBuildDate>Mon, 14 May 2018 22:44:08 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Customizing the website.</title><link>https://gtopba.github.io/posts/customizing-the-website/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;ol class="arabic simple"&gt;
-&lt;li&gt;Create your homepage&lt;/li&gt;
-&lt;li&gt;Edid manubar&lt;/li&gt;
-&lt;li&gt;Add more csschange theme&lt;/li&gt;
-&lt;li&gt;Edit template&lt;/li&gt;
-&lt;/ol&gt;</description><category>bootstrap</category><category>css</category><category>nikola</category><guid>https://gtopba.github.io/posts/customizing-the-website/</guid><pubDate>Thu, 06 Jul 2017 15:23:41 GMT</pubDate></item></channel></rss>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gtopba (Posts about css)</title><link>https://gtopba.github.io/</link><description></description><atom:link href="https://gtopba.github.io/categories/css.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2018 &lt;a href="mailto:gtopba@gmail.com"&gt;Warut Phothiphan&lt;/a&gt; </copyright><lastBuildDate>Fri, 18 May 2018 11:34:35 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Customizing the website.</title><link>https://gtopba.github.io/posts/customizing-the-website/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;dl class="docutils"&gt;
+&lt;dt&gt;Create your homepage&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;By default your homepage is the main blog page showing all your posts. If you prefer the default homepage, simply skip this step. Use your favorite editor to create index.html file in the "pages" folder. This will be your main page. Now edit it as you want. You can see source code of my main page by clicking "Source" at the top-right corner of my website. Alternatively, go check all my source project in my Github src branch of this repository. You just need to do the body part as the header and footer will be added by the compiler according to the template.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="My homepage." src="https://gtopba.github.io/pic/nikola-tut/customise-homepage/body.JPG"&gt;
+&lt;p class="caption"&gt;Body part in the red box.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;in conf.py edit the following parameters to tell compiler to put the main blog page to sub-folder blog:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+INDEX_PATH = "blog"
+&lt;/pre&gt;
+&lt;p&gt;and to build the html page at main directory. The page.tmpl is the template that we will edit later:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+PAGES = (
+        ("pages/*.rst", "pages", "page.tmpl"),
+        ("pages/*.md", "pages", "page.tmpl"),
+        ("pages/*.txt", "pages", "page.tmpl"),
+        ("pages/*.html", "", "page.tmpl"),
+)
+&lt;/pre&gt;
+&lt;p class="last"&gt;Now you should have similar page like mine without those graphical icons which require 3rd party library. As I am using Cerulean theme, yours might look different. We will change the theme soon.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Add more tabs and drop-down menu on navigation bar&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;For example:&lt;/p&gt;
+&lt;pre class="last literal-block"&gt;
+NAVIGATION_LINKS = {
+        DEFAULT_LANG: (
+                ((      ("/blog/","Timeline"),("/pages/lst-ex/","List of examples")     ), "Blog"),
+                ("/archive.html", "Archive"),
+                ("/categories/", "Tags"),
+                ("/rss.xml", "RSS feed"),
+                ("/pages/about-me/", "About"),
+        ),
+}
+&lt;/pre&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Change theme and edit template&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;Choose your favorite theme from &lt;a class="reference external" href="https://bootswatch.com/"&gt;https://bootswatch.com/&lt;/a&gt; then run this command with your favorite theme's name, for example, "cerulean":&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+nikola bootswatch_theme -s cerulean
+&lt;/pre&gt;
+&lt;p&gt;Now your new theme is installed. You can modify your theme by tweaking in to the css file inside your new theme folder. In this case&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+theme/custom/asset
+&lt;/pre&gt;
+&lt;p&gt;But we will get into that later. Now let's edit the templates by copying them from the base theme, in this case, bootstrap3:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+nikola theme -c base.tmpl
+nikola theme -c base_helper.tmpl
+&lt;/pre&gt;
+&lt;p&gt;This makes a copy of templates which overrides the parent template Bootstrap3. Firstly, have a look at base.tmpl, by default nikola inverse the navbar color. You can change navbar color to default.:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;lt;nav class="navbar navbar-default navbar-static-top"&amp;gt;
+&lt;/pre&gt;
+&lt;p&gt;In base_helper.tmpl we add a graphic library font-awesome. Go to &lt;a class="reference external" href="https://fontawesome.com/get-started"&gt;https://fontawesome.com/get-started&lt;/a&gt; and copy code similar to below and put it to roughly line 112 where you see other ccs libraries added:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;lt;link href="/fontawesome/fontawesome-all.css" rel="stylesheet"&amp;gt;
+&lt;/pre&gt;
+&lt;p class="last"&gt;Now you can use icons on your pages&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;</description><category>bootstrap</category><category>css</category><category>nikola</category><guid>https://gtopba.github.io/posts/customizing-the-website/</guid><pubDate>Thu, 06 Jul 2017 15:23:41 GMT</pubDate></item></channel></rss>

@@ -17,9 +17,7 @@
 <meta property="og:title" content="Customizing the website.">
 <meta property="og:url" content="https://gtopba.github.io/posts/customizing-the-website/">
 <meta property="og:description" content="Create your homepage
-Edid manubar
-Add more csschange theme
-Edit template">
+By default your homepage is the main blog page showing all your posts. If you prefer the default homepage, simply skip this step. Use your favorite editor to create index.html fil">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2017-07-06T22:23:41+07:00">
 <meta property="article:tag" content="bootstrap">
@@ -111,12 +109,69 @@ Edit template">
         
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <ol class="arabic simple">
-<li>Create your homepage</li>
-<li>Edid manubar</li>
-<li>Add more csschange theme</li>
-<li>Edit template</li>
-</ol>
+    <dl class="docutils">
+<dt>Create your homepage</dt>
+<dd>
+<p class="first">By default your homepage is the main blog page showing all your posts. If you prefer the default homepage, simply skip this step. Use your favorite editor to create index.html file in the "pages" folder. This will be your main page. Now edit it as you want. You can see source code of my main page by clicking "Source" at the top-right corner of my website. Alternatively, go check all my source project in my Github src branch of this repository. You just need to do the body part as the header and footer will be added by the compiler according to the template.</p>
+<div class="figure">
+<img alt="My homepage." src="../../pic/nikola-tut/customise-homepage/body.JPG"><p class="caption">Body part in the red box.</p>
+</div>
+<p>in conf.py edit the following parameters to tell compiler to put the main blog page to sub-folder blog:</p>
+<pre class="literal-block">
+INDEX_PATH = "blog"
+</pre>
+<p>and to build the html page at main directory. The page.tmpl is the template that we will edit later:</p>
+<pre class="literal-block">
+PAGES = (
+        ("pages/*.rst", "pages", "page.tmpl"),
+        ("pages/*.md", "pages", "page.tmpl"),
+        ("pages/*.txt", "pages", "page.tmpl"),
+        ("pages/*.html", "", "page.tmpl"),
+)
+</pre>
+<p class="last">Now you should have similar page like mine without those graphical icons which require 3rd party library. As I am using Cerulean theme, yours might look different. We will change the theme soon.</p>
+</dd>
+<dt>Add more tabs and drop-down menu on navigation bar</dt>
+<dd>
+<p class="first">For example:</p>
+<pre class="last literal-block">
+NAVIGATION_LINKS = {
+        DEFAULT_LANG: (
+                ((      ("/blog/","Timeline"),("/pages/lst-ex/","List of examples")     ), "Blog"),
+                ("/archive.html", "Archive"),
+                ("/categories/", "Tags"),
+                ("/rss.xml", "RSS feed"),
+                ("/pages/about-me/", "About"),
+        ),
+}
+</pre>
+</dd>
+<dt>Change theme and edit template</dt>
+<dd>
+<p class="first">Choose your favorite theme from <a class="reference external" href="https://bootswatch.com/">https://bootswatch.com/</a> then run this command with your favorite theme's name, for example, "cerulean":</p>
+<pre class="literal-block">
+nikola bootswatch_theme -s cerulean
+</pre>
+<p>Now your new theme is installed. You can modify your theme by tweaking in to the css file inside your new theme folder. In this case</p>
+<pre class="literal-block">
+theme/custom/asset
+</pre>
+<p>But we will get into that later. Now let's edit the templates by copying them from the base theme, in this case, bootstrap3:</p>
+<pre class="literal-block">
+nikola theme -c base.tmpl
+nikola theme -c base_helper.tmpl
+</pre>
+<p>This makes a copy of templates which overrides the parent template Bootstrap3. Firstly, have a look at base.tmpl, by default nikola inverse the navbar color. You can change navbar color to default.:</p>
+<pre class="literal-block">
+&lt;nav class="navbar navbar-default navbar-static-top"&gt;
+</pre>
+<p>In base_helper.tmpl we add a graphic library font-awesome. Go to <a class="reference external" href="https://fontawesome.com/get-started">https://fontawesome.com/get-started</a> and copy code similar to below and put it to roughly line 112 where you see other ccs libraries added:</p>
+<pre class="literal-block">
+&lt;link href="/fontawesome/fontawesome-all.css" rel="stylesheet"&gt;
+</pre>
+<p class="last">Now you can use icons on your pages</p>
+</dd>
+</dl>
 </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
 <li><a class="tag p-category" href="../../categories/bootstrap/" rel="tag">bootstrap</a></li>

@@ -12,10 +12,11 @@
 <link rel="canonical" href="https://gtopba.github.io/posts/deploying-the-static-website-to-github/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><meta name="author" content="Warut Phothiphan">
 <link rel="prev" href="../customizing-the-website/" title="Customizing the website." type="text/html">
+<link rel="next" href="../using-python-virtual-environment-with-anaconda/" title="Using Python virtual environment with Anaconda" type="text/html">
 <meta property="og:site_name" content="Gtopba">
 <meta property="og:title" content="Deploying the static website to GitHub.">
 <meta property="og:url" content="https://gtopba.github.io/posts/deploying-the-static-website-to-github/">
-<meta property="og:description" content="Write your post here.">
+<meta property="og:description" content="Assuming you already created a github.io repository following the instruction from this link https://pages.github.com/ and already install the 'Git&lt;https://git-scm.com/downloads&gt;'_ software according ">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2017-07-06T22:24:34+07:00">
 <meta property="article:tag" content="git">
@@ -107,7 +108,45 @@
         
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <p>Write your post here.</p>
+    <div>
+<p>Assuming you already created a github.io repository following the instruction from this link <a class="reference external" href="https://pages.github.com/">https://pages.github.com/</a> and already install the 'Git&lt;<a class="reference external" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>&gt;'_ software according to your operating system. Given the original 'github_deploy&lt;<a class="reference external" href="https://getnikola.com/handbook.html#deploying-to-github">https://getnikola.com/handbook.html#deploying-to-github</a>&gt;'_ tutorial, I will explain more where you might get confused.</p>
+<p>Initialize a git repository in your Nikola source directory by running:</p>
+<pre class="literal-block">
+git init.
+git remote add origin git@github.com:user/repository.git
+</pre>
+<ul class="simple">
+<li>user : your Github username, for example, "deadbeef"</li>
+<li>repository : your github.io repository, for example, deadbeef.github.io.git</li>
+</ul>
+<p>so the command should be:</p>
+<pre class="literal-block">
+git remote add origin git@github.com:deadbeef/deadbeef.github.io.git
+</pre>
+<p>Then, setup conf.py:</p>
+<pre class="literal-block">
+GITHUB_SOURCE_BRANCH = 'src'
+GITHUB_DEPLOY_BRANCH = 'master'
+GITHUB_REMOTE_NAME = 'origin'
+GITHUB_COMMIT_SOURCE = True
+</pre>
+<ul class="simple">
+<li>'src' means your Nikola source branch's name is src</li>
+<li>'master' means your compiled static website branch's name is master</li>
+</ul>
+<p>Create a .gitignore file containing:</p>
+<pre class="literal-block">
+cache
+.doit.db
+__pycache__
+output
+</pre>
+<p>Finally, deploying:</p>
+<pre class="literal-block">
+nikola github_deploy
+</pre>
+<p>first time it will ask you to log in to your github account. Then, you should be able to access you website <a class="reference external" href="https://deadbeef.github.io">https://deadbeef.github.io</a></p>
+</div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
 <li><a class="tag p-category" href="../../categories/git/" rel="tag">git</a></li>
@@ -117,6 +156,9 @@
 <ul class="pager hidden-print">
 <li class="previous">
                 <a href="../customizing-the-website/" rel="prev" title="Customizing the website.">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../using-python-virtual-environment-with-anaconda/" rel="next" title="Using Python virtual environment with Anaconda">Next post</a>
             </li>
         </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
         
