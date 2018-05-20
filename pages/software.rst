@@ -1,5 +1,5 @@
-.. title: Building website with nikola
-.. slug: building-website-with-nikola
+.. title: Software
+.. slug: software
 .. date: 2017-07-06 22:37:45 UTC+07:00
 .. tags: 
 .. category: 
@@ -8,4 +8,4 @@
 .. type: text
 
 .. post-list::
-   :categories: building_website
+   :categories: software

@@ -2,7 +2,7 @@
 .. slug: customizing-the-website
 .. date: 2017-07-06 22:23:41 UTC+07:00
 .. tags: nikola, css, bootstrap
-.. category: 
+.. category: building_website
 .. link: 
 .. description: 
 .. type: text

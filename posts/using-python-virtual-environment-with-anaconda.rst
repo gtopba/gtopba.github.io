@@ -2,7 +2,7 @@
 .. slug: using-python-virtual-environment-with-anaconda
 .. date: 2018-05-15 11:41:20 UTC+07:00
 .. tags: 
-.. category: 
+.. category: software
 .. link: 
 .. description: 
 .. type: text
