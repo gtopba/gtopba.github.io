@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gtopba</title><link>https://gtopba.github.io/</link><description>As I'm getting older, my brain's memory is getting poorer. This blog is my second memory back up.</description><atom:link href="https://gtopba.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2018 &lt;a href="mailto:gtopba@gmail.com"&gt;Warut Phothiphan&lt;/a&gt; </copyright><lastBuildDate>Fri, 18 May 2018 11:51:38 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Double-sided PCB milling</title><link>https://gtopba.github.io/posts/double-sided-pcb-milling/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><guid>https://gtopba.github.io/posts/double-sided-pcb-milling/</guid><pubDate>Fri, 18 May 2018 11:51:30 GMT</pubDate></item><item><title>Flatcam installing from source</title><link>https://gtopba.github.io/posts/flatcam-installing-from-source/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><guid>https://gtopba.github.io/posts/flatcam-installing-from-source/</guid><pubDate>Fri, 18 May 2018 11:50:07 GMT</pubDate></item><item><title>Using Python virtual environment with Anaconda</title><link>https://gtopba.github.io/posts/using-python-virtual-environment-with-anaconda/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;p&gt;Anaconda is an easier way for beginner to lean Python. We can create Python virtual environments for both 2.7 and 3.6 without messing around with the system PATH. In fact, you don't even need Administrator privilege. Moreover, you can manage Python modules through the GUI package manager. There are other useful tools such as Spyder IDE and Jupyter Notebook which we will talk about in the future. In &lt;a class="reference external" href="https://gtopba.github.io/posts/introduction-to-nikola"&gt;Introduction to Nikola&lt;/a&gt; , I created an environment using virtualenv and virtualenvwrapper-win packages which is fine, but there is a simpler method. Let's get started.&lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gtopba</title><link>https://gtopba.github.io/</link><description>As I'm getting older, my brain's memory is getting poorer. This blog is my second memory back up.</description><atom:link href="https://gtopba.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2018 &lt;a href="mailto:gtopba@gmail.com"&gt;Warut Phothiphan&lt;/a&gt; </copyright><lastBuildDate>Sun, 20 May 2018 08:19:28 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Get started with ERPNext</title><link>https://gtopba.github.io/posts/get-started-with-erpnext/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><guid>https://gtopba.github.io/posts/get-started-with-erpnext/</guid><pubDate>Sun, 20 May 2018 08:14:11 GMT</pubDate></item><item><title>Compile Smoothieware from source</title><link>https://gtopba.github.io/posts/compile-smoothieware-from-source/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><guid>https://gtopba.github.io/posts/compile-smoothieware-from-source/</guid><pubDate>Sun, 20 May 2018 08:11:25 GMT</pubDate></item><item><title>Double-sided PCB milling</title><link>https://gtopba.github.io/posts/double-sided-pcb-milling/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;p&gt;What you will learn
+1. Export Gerber files from Eagle
+2. CAM process with Flatcam
+3. Machine specific G-code
+4. Milling the PCB&lt;/p&gt;
+&lt;p&gt;Previous post &lt;a class="reference external" href="https://gtopba.github.io/posts/flatcam-installing-from-source"&gt;Flatcam installing&lt;/a&gt; . Today, I'll show you the process of making 2-layer PCB.&lt;/p&gt;&lt;/div&gt;</description><category>flatcam</category><category>pcb</category><guid>https://gtopba.github.io/posts/double-sided-pcb-milling/</guid><pubDate>Fri, 18 May 2018 11:51:30 GMT</pubDate></item><item><title>Flatcam installing from source</title><link>https://gtopba.github.io/posts/flatcam-installing-from-source/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;dl class="docutils"&gt;
+&lt;dt&gt;Create new Python 2.7 environment and install dependencies.&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;Follow this tutorial &lt;a class="reference external" href="https://gtopba.github.io/posts/using-python-virtual-environment-with-anaconda"&gt;Using Python virtual environment with Anaconda&lt;/a&gt;. Then open up your new environment terminal. Make sure it is python 2.7 by:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+python -V
+&lt;/pre&gt;
+&lt;p&gt;Install packages:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+pip install matplotlib
+pip install pypiwin32
+pip install pywin32
+pip install svg.path
+pip install scipy
+&lt;/pre&gt;
+&lt;p&gt;note : Numpy already existed in the Anaconda environment. Use this command to check available package:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+pip freeze
+&lt;/pre&gt;
+&lt;p&gt;These packages are for Windows user. The .whl file is a pre-compiled package with its dependencies included. Simply download the following Python 2.7 64-bit packages and navigate your terminal to the containing folder.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://www.riverbankcomputing.co.uk/software/pyqt/"&gt;PyQt4&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/Toblerity/Shapely"&gt;Shapely&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/Toblerity/rtree"&gt;RTree&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/simplejson/simplejson"&gt;Simplejson&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Run this command to install the packages:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+pip install &amp;lt;package's name&amp;gt;
+&lt;/pre&gt;
+&lt;p class="last"&gt;From &lt;a class="reference external" href="http://www.flatcam.org/manual/installation.html#required"&gt;original requirements&lt;/a&gt; , it suggests Python 2.7 32-bit. I have not found any problem using Python 2.7 64-bit version.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Clone Flatcam repository and run it&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;navigate your terminal to where you want to put the clone and run this:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git clone https://bitbucket.org/jpcgt/flatcam
+cd flatcam
+python flatcam
+&lt;/pre&gt;
+&lt;p class="last"&gt;Enjoy the Flatcam ! This is not stable release and may contain bugs, use it at your own risk.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;</description><category>flatcam</category><category>pcb</category><guid>https://gtopba.github.io/posts/flatcam-installing-from-source/</guid><pubDate>Fri, 18 May 2018 11:50:07 GMT</pubDate></item><item><title>Using Python virtual environment with Anaconda</title><link>https://gtopba.github.io/posts/using-python-virtual-environment-with-anaconda/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;p&gt;Anaconda is an easier way for beginner to lean Python. We can create Python virtual environments for both 2.7 and 3.6 without messing around with the system PATH. In fact, you don't even need Administrator privilege. Moreover, you can manage Python modules through the GUI package manager. There are other useful tools such as Spyder IDE and Jupyter Notebook which we will talk about in the future. In &lt;a class="reference external" href="https://gtopba.github.io/posts/introduction-to-nikola"&gt;Introduction to Nikola&lt;/a&gt; , I created an environment using virtualenv and virtualenvwrapper-win packages which is fine, but there is a simpler method. Let's get started.&lt;/p&gt;
 &lt;dl class="docutils"&gt;
 &lt;dt&gt;Download and install&lt;/dt&gt;
 &lt;dd&gt;&lt;p class="first"&gt;Download latest version of &lt;a class="reference external" href="https://www.anaconda.com/download/"&gt;Anaconda&lt;/a&gt; . I installed the Python 3.6 version. However, you still can create Python 2.7 environment.&lt;/p&gt;

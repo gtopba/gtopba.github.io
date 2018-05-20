@@ -19,7 +19,7 @@
  </url>
  <url>
   <loc>https://gtopba.github.io/archive.html</loc>
-  <lastmod>2018-05-18T11:51:00Z</lastmod>
+  <lastmod>2018-05-20T08:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/blog/</loc>
@@ -27,7 +27,7 @@
  </url>
  <url>
   <loc>https://gtopba.github.io/categories/</loc>
-  <lastmod>2018-05-18T10:54:00Z</lastmod>
+  <lastmod>2018-05-20T07:04:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/categories/bootstrap/</loc>
@@ -36,6 +36,10 @@
  <url>
   <loc>https://gtopba.github.io/categories/css/</loc>
   <lastmod>2018-05-18T10:53:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/categories/flatcam/</loc>
+  <lastmod>2018-05-20T07:04:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/categories/git/</loc>
@@ -48,6 +52,10 @@
  <url>
   <loc>https://gtopba.github.io/categories/nikola/</loc>
   <lastmod>2018-05-18T10:53:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/categories/pcb/</loc>
+  <lastmod>2018-05-20T07:04:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/galleries/</loc>
@@ -150,6 +158,10 @@
   <lastmod>2018-05-18T10:53:00Z</lastmod>
  </url>
  <url>
+  <loc>https://gtopba.github.io/posts/compile-smoothieware-from-source/</loc>
+  <lastmod>2018-05-20T08:19:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://gtopba.github.io/posts/customizing-the-website/</loc>
   <lastmod>2018-05-18T10:54:00Z</lastmod>
  </url>
@@ -168,6 +180,10 @@
  <url>
   <loc>https://gtopba.github.io/posts/generating-an-empty-website/</loc>
   <lastmod>2018-05-18T10:53:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/posts/get-started-with-erpnext/</loc>
+  <lastmod>2018-05-20T08:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/posts/introduction-to-nikola/</loc>

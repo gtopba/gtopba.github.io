@@ -78,7 +78,39 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/double-sided-pcb-milling/" class="u-url">Double-sided PCB milling</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/get-started-with-erpnext/" class="u-url">Get started with ERPNext</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Warut Phothiphan
+            </span></p>
+            <p class="dateline"><a href="../posts/get-started-with-erpnext/" rel="bookmark"><time class="published dt-published" datetime="2018-05-20T15:14:11+07:00" title="2018-05-20 15:14">2018-05-20 15:14</time></a></p>
+                <p class="commentline">
+        
+    <a href="../posts/get-started-with-erpnext/#disqus_thread" data-disqus-identifier="cache/posts/get-started-with-erpnext.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <p>Write your post here.</p>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/compile-smoothieware-from-source/" class="u-url">Compile Smoothieware from source</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Warut Phothiphan
+            </span></p>
+            <p class="dateline"><a href="../posts/compile-smoothieware-from-source/" rel="bookmark"><time class="published dt-published" datetime="2018-05-20T15:11:25+07:00" title="2018-05-20 15:11">2018-05-20 15:11</time></a></p>
+                <p class="commentline">
+        
+    <a href="../posts/compile-smoothieware-from-source/#disqus_thread" data-disqus-identifier="cache/posts/compile-smoothieware-from-source.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <p>Write your post here.</p>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/double-sided-pcb-milling/" class="u-url">Double-sided PCB milling</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Warut Phothiphan
@@ -92,7 +124,14 @@
         </p>
 </div>
     </header><div class="p-summary entry-summary">
-    <p>Write your post here.</p>
+    <div>
+<p>What you will learn
+1. Export Gerber files from Eagle
+2. CAM process with Flatcam
+3. Machine specific G-code
+4. Milling the PCB</p>
+<p>Previous post <a class="reference external" href="../posts/flatcam-installing-from-source">Flatcam installing</a> . Today, I'll show you the process of making 2-layer PCB.</p>
+</div>
     </div>
     </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/flatcam-installing-from-source/" class="u-url">Flatcam installing from source</a></h1>
         <div class="metadata">
@@ -108,8 +147,50 @@
         </p>
 </div>
     </header><div class="p-summary entry-summary">
-    <p>Write your post here.</p>
-    </div>
+    <dl class="docutils">
+<dt>Create new Python 2.7 environment and install dependencies.</dt>
+<dd>
+<p class="first">Follow this tutorial <a class="reference external" href="../posts/using-python-virtual-environment-with-anaconda">Using Python virtual environment with Anaconda</a>. Then open up your new environment terminal. Make sure it is python 2.7 by:</p>
+<pre class="literal-block">
+python -V
+</pre>
+<p>Install packages:</p>
+<pre class="literal-block">
+pip install matplotlib
+pip install pypiwin32
+pip install pywin32
+pip install svg.path
+pip install scipy
+</pre>
+<p>note : Numpy already existed in the Anaconda environment. Use this command to check available package:</p>
+<pre class="literal-block">
+pip freeze
+</pre>
+<p>These packages are for Windows user. The .whl file is a pre-compiled package with its dependencies included. Simply download the following Python 2.7 64-bit packages and navigate your terminal to the containing folder.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.riverbankcomputing.co.uk/software/pyqt/">PyQt4</a></li>
+<li><a class="reference external" href="https://github.com/Toblerity/Shapely">Shapely</a></li>
+<li><a class="reference external" href="https://github.com/Toblerity/rtree">RTree</a></li>
+<li><a class="reference external" href="https://github.com/simplejson/simplejson">Simplejson</a></li>
+</ul>
+<p>Run this command to install the packages:</p>
+<pre class="literal-block">
+pip install &lt;package's name&gt;
+</pre>
+<p class="last">From <a class="reference external" href="http://www.flatcam.org/manual/installation.html#required">original requirements</a> , it suggests Python 2.7 32-bit. I have not found any problem using Python 2.7 64-bit version.</p>
+</dd>
+<dt>Clone Flatcam repository and run it</dt>
+<dd>
+<p class="first">navigate your terminal to where you want to put the clone and run this:</p>
+<pre class="literal-block">
+git clone https://bitbucket.org/jpcgt/flatcam
+cd flatcam
+python flatcam
+</pre>
+<p class="last">Enjoy the Flatcam ! This is not stable release and may contain bugs, use it at your own risk.</p>
+</dd>
+</dl>
+</div>
     </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/using-python-virtual-environment-with-anaconda/" class="u-url">Using Python virtual environment with Anaconda</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
