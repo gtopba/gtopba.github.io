@@ -27,11 +27,35 @@
  </url>
  <url>
   <loc>https://gtopba.github.io/categories/</loc>
-  <lastmod>2018-05-20T07:04:00Z</lastmod>
+  <lastmod>2018-05-20T20:50:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/categories/bootstrap/</loc>
   <lastmod>2018-05-18T10:53:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/categories/cat_building_website-software/</loc>
+  <lastmod>2018-05-20T20:37:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/categories/cat_building_website/</loc>
+  <lastmod>2018-05-20T20:37:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/categories/cat_hardware/</loc>
+  <lastmod>2018-05-20T20:50:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/categories/cat_software-hardware-projects/</loc>
+  <lastmod>2018-05-20T20:47:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/categories/cat_software-hardware/</loc>
+  <lastmod>2018-05-20T20:37:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/categories/cat_software/</loc>
+  <lastmod>2018-05-20T20:37:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/categories/css/</loc>
@@ -114,6 +138,10 @@
   <lastmod>2018-05-18T10:54:00Z</lastmod>
  </url>
  <url>
+  <loc>https://gtopba.github.io/pages/hardware/</loc>
+  <lastmod>2018-05-20T20:47:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://gtopba.github.io/pages/internals/</loc>
   <lastmod>2018-05-18T10:54:00Z</lastmod>
  </url>
@@ -128,6 +156,10 @@
  <url>
   <loc>https://gtopba.github.io/pages/path-handlers/</loc>
   <lastmod>2018-05-18T10:53:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/pages/projects/</loc>
+  <lastmod>2018-05-20T20:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/pages/quickref/</loc>
@@ -150,8 +182,20 @@
   <lastmod>2018-05-18T10:54:00Z</lastmod>
  </url>
  <url>
+  <loc>https://gtopba.github.io/pages/software/</loc>
+  <lastmod>2018-05-20T20:47:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://gtopba.github.io/pages/theming/</loc>
   <lastmod>2018-05-18T10:54:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/pages/theory/</loc>
+  <lastmod>2018-05-20T20:47:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/pages/traveling/</loc>
+  <lastmod>2018-05-20T20:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/pages/welcome-to-nikola/</loc>

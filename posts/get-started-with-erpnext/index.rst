@@ -2,7 +2,7 @@
 .. slug: get-started-with-erpnext
 .. date: 2018-05-20 15:14:11 UTC+07:00
 .. tags: 
-.. category: 
+.. category: software
 .. link: 
 .. description: 
 .. type: text

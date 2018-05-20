@@ -125,12 +125,348 @@
 </div>
     </header><div class="p-summary entry-summary">
     <div>
-<p>What you will learn
-1. Export Gerber files from Eagle
-2. CAM process with Flatcam
-3. Machine specific G-code
-4. Milling the PCB</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="../posts/double-sided-pcb-milling/#export-gerber-files-from-eagle" id="id1">Export Gerber files from Eagle</a></li>
+<li>
+<a class="reference internal" href="../posts/double-sided-pcb-milling/#cam-process-with-flatcam" id="id2">CAM process with Flatcam</a><ul>
+<li><a class="reference internal" href="../posts/double-sided-pcb-milling/#configuring-the-project" id="id3">Configuring the project</a></li>
+<li><a class="reference internal" href="../posts/double-sided-pcb-milling/#create-mirror-axis-and-alignment-pins" id="id4">Create mirror axis and alignment pins</a></li>
+<li><a class="reference internal" href="../posts/double-sided-pcb-milling/#top-side-non-copper-area" id="id5">Top-side non-copper area</a></li>
+<li><a class="reference internal" href="../posts/double-sided-pcb-milling/#top-side-isolation" id="id6">Top-side isolation</a></li>
+<li><a class="reference internal" href="../posts/double-sided-pcb-milling/#top-side-solder-mask" id="id7">Top-side solder mask</a></li>
+<li><a class="reference internal" href="../posts/double-sided-pcb-milling/#drilling" id="id8">Drilling</a></li>
+<li><a class="reference internal" href="../posts/double-sided-pcb-milling/#cutouts" id="id9">Cutouts</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="../posts/double-sided-pcb-milling/#machine-specific-g-code" id="id10">Machine specific G-code</a></li>
+<li><a class="reference internal" href="../posts/double-sided-pcb-milling/#milling-the-pcb" id="id11">Milling the PCB</a></li>
+</ul>
+</div>
+<div class="section" id="export-gerber-files-from-eagle">
+<h2><a class="toc-backref" href="../posts/double-sided-pcb-milling/#id1">Export Gerber files from Eagle</a></h2>
+<p>From your pcb eagle's project, open your board. Then export Gerber files following these 4 steps. Make sure you are working on Metric unit. We need to unselect cutouts as they are included in Excellon file already. Unzip your output file. That's it we are done with  Eagle.</p>
+<div class="figure">
+<img alt="export gerber." src="../pic/nikola-tut/pcbmilling/eagle.JPG"><p class="caption">Eagle export Gerber.</p>
+</div>
+</div>
+<div class="section" id="cam-process-with-flatcam">
+<h2><a class="toc-backref" href="../posts/double-sided-pcb-milling/#id2">CAM process with Flatcam</a></h2>
 <p>Previous post <a class="reference external" href="../posts/flatcam-installing-from-source">Flatcam installing</a> . Today, I'll show you the process of making 2-layer PCB.</p>
+<div class="section" id="configuring-the-project">
+<h3><a class="toc-backref" href="../posts/double-sided-pcb-milling/#id3">Configuring the project</a></h3>
+<dl class="docutils">
+<dt>Trailing Zeros</dt>
+<dd>
+<p class="first">Eagle uses Trailing Zeros in its Excellon number format but does not properly report this format in the Excellon file. To tell FlatCAM to use this format by default set this system option excellon_zeros to T by using the set_sys command in the Shell Command Line Interface as shown below:</p>
+<pre class="literal-block">
+set_sys excellon_zero T
+</pre>
+<div class="admonition note last">
+<p class="first admonition-title">Note</p>
+<p class="last">2018-05-18 : Current Flatcam source is having problem with this command. If need this functionality, use stable version.</p>
+</div>
+</dd>
+<dt>System unit</dt>
+<dd>
+<p class="first">From options tab, select Units as mm.</p>
+<div class="last figure">
+<img alt="Units: mm" src="../pic/nikola-tut/pcbmilling/flatcam2.JPG"><p class="caption">Units: mm</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="create-mirror-axis-and-alignment-pins">
+<h3><a class="toc-backref" href="../posts/double-sided-pcb-milling/#id4">Create mirror axis and alignment pins</a></h3>
+<div class="admonition alert alert-info pull-right tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Each object can be moved to arbitrary location. Select object and go to selected tab then find offset tool.</p>
+</div>
+<p>Load Gerber files:</p>
+<pre class="literal-block">
+copper_top.gbr
+copper_bottom.gbr
+soldermask_top.gbr
+soldermask_bottom.gbr
+profile.gbr
+</pre>
+<p>Load Excellon file:</p>
+<pre class="literal-block">
+drills.xln
+</pre>
+<p>Mirror axis for bottom layer stuff, from menu bar, Tool -&gt; Double-sided PCB Tool. Create mirror axis around Y axis at location x = 50 mm:</p>
+<pre class="literal-block">
+Mirror Axis: Y
+Axis Location: Point
+Point/Box: (50,0)
+</pre>
+<p>Mirror bottom layer objects one by one from the drop-down menu and click "Mirror Object":</p>
+<pre class="literal-block">
+copper_bottom.gbr
+soldermask_bottom.gbr
+profile.gbr
+drills.xln
+</pre>
+<p>Alignment Holes help align the pcb when we flip it over. Create holes with 6 mm in diameter at desired locations. Then click "Create Alignment Drill":</p>
+<pre class="literal-block">
+Alignment Holes: (110, -5),(110, 60)
+Drill diam: 6
+</pre>
+<p>You can generate gcode to cut Alignment Holes following similar process of the next section below. You can skip this for now and do it later.</p>
+<div class="figure">
+<img alt="flatcam" src="../pic/nikola-tut/pcbmilling/flatcam1.JPG"><p class="caption">Double-sided PCB Tool</p>
+</div>
+</div>
+<div class="section" id="top-side-non-copper-area">
+<h3><a class="toc-backref" href="../posts/double-sided-pcb-milling/#id5">Top-side non-copper area</a></h3>
+<p>Hide all other layer except copper_top.gbr. Select this object then navigate to "Non-copper regions" section and generate geometry:</p>
+<pre class="literal-block">
+Boundary Margin: 0.1
+</pre>
+<p>New geometry "copper_top.gbr_noncopper" is created. Navigate to "Paint Area" and generate paint area:</p>
+<pre class="literal-block">
+Tool dia:  0.1
+Overlap:   0.05
+Margin:    0.1
+Method:    standard
+Connect:   yes
+Contour:   yes
+Selection: All
+</pre>
+<p>New geometry "copper_top.gbr_noncopper_paint" is created. Navigate to "Create CNC Job" and generate toolpath:</p>
+<pre class="literal-block">
+Cut Z:        -0.05
+Travel Z:      1.0
+Feed Rate:     250.0
+Tool dia:      0.1
+Spindle speed: 24,000
+Multi-Depth:   No
+</pre>
+<p>New geometry "copper_top.gbr_noncopper_paint_cnc" is created. Navigate to "Export G-Code" and export gcode.</p>
+</div>
+<div class="section" id="top-side-isolation">
+<h3><a class="toc-backref" href="../posts/double-sided-pcb-milling/#id6">Top-side isolation</a></h3>
+<p>Select "copper_top.gbr" and navigate to "Isolation Routing". Then generate geometry:</p>
+<pre class="literal-block">
+Tool dia:       0.145
+Width(#passes): 1
+Pass overlap:   0.0
+Combine Passes: No
+</pre>
+<p>New geometry "copper_top.gbr_iso" is created. Navigate to "Create CNC Job" and generate toolpath:</p>
+<pre class="literal-block">
+Cut Z:        -0.05
+Travel Z:      1.0
+Feed Rate:     250.0
+Tool dia:      0.145
+Spindle speed: 24,000
+Multi-Depth:   No
+</pre>
+<p>New geometry "copper_top.gbr_iso_cnc" is created. Navigate to "Export G-Code" and export gcode.</p>
+</div>
+<div class="section" id="top-side-solder-mask">
+<h3><a class="toc-backref" href="../posts/double-sided-pcb-milling/#id7">Top-side solder mask</a></h3>
+<p>Select "soldermask_top.gbr" and navigate to "Isolation Routing". Then generate geometry:</p>
+<pre class="literal-block">
+Tool dia:       0.0
+Width(#passes): 1
+Pass overlap:   0.0
+Combine Passes: No
+</pre>
+<p>New geometry "soldermask_top.gbr_iso" is created. Navigate to "Paint Area" and generate paint area:</p>
+<pre class="literal-block">
+Tool dia:  0.1
+Overlap:   0.05
+Margin:    0.1
+Method:    standard
+Connect:   yes
+Contour:   yes
+Selection: All
+</pre>
+<p>New geometry "soldermask_top.gbr_iso_paint" is created. Navigate to "Create CNC Job" and generate toolpath:</p>
+<pre class="literal-block">
+Cut Z:        -0.05
+Travel Z:      1.0
+Feed Rate:     400.0
+Tool dia:      0.1
+Spindle speed: 24,000
+Multi-Depth:   No
+</pre>
+<p>New geometry "soldermask_top.gbr_iso_paint_cnc" is created. Navigate to "Export G-Code" and export gcode. That's it for the top layer. Now flip over the PCB. The alignment holes helps keep PCB in correct position. The bottom-side non-copper area, isolation, soldermask are identical to the top layer.</p>
+</div>
+<div class="section" id="drilling">
+<h3><a class="toc-backref" href="../posts/double-sided-pcb-milling/#id8">Drilling</a></h3>
+<p>In drills.xln's Tools selection, choose hole sizes needed for drilling, excluding those large holes which need milling. Holes larger than 1 mm in diameter, I will use milling process instead. So select:</p>
+<pre class="literal-block">
+0.406
+0.61
+0.95
+1.016
+</pre>
+<p>In Create CNC Job section:</p>
+<pre class="literal-block">
+Cut Z:        -1.95
+Travel Z:      1.0
+Feed Rate:     150.0
+Tool change:   yes
+Tool change Z: 50
+Spindle speed: 24,000
+</pre>
+<p>New geometry "drills.xln_cnc" is created. Navigate to "Export G-Code" and export gcode. Next, select drills.xln again and choose hole sizes for milling:</p>
+<pre class="literal-block">
+2.2
+3.2
+3.302
+</pre>
+<p>At Mill Holes section, generate geometry:</p>
+<pre class="literal-block">
+Tool dia: 1.5
+</pre>
+<p>New geometry "soldermask_top.gbr_iso_paint" is created. Navigate to "Create CNC Job" and generate toolpath:</p>
+<pre class="literal-block">
+Cut Z:        -1.95
+Travel Z:      1.0
+Feed Rate:     150.0
+Tool dia:      1.5
+Spindle speed: 24,000
+Multi-Depth:   yes
+Depth/pass:    1
+</pre>
+<p>New geometry "drills.xln_mill_cnc" is created. Navigate to "Export G-Code" and export gcode.</p>
+</div>
+<div class="section" id="cutouts">
+<h3><a class="toc-backref" href="../posts/double-sided-pcb-milling/#id9">Cutouts</a></h3>
+<p>This is a bit tricky. We need the cut edges pass right through the middle of profile lines. The measurement tool indicates 0.254 mm line thickness. For 1.5 mm tool dia, we set Tool dia = 1.5 - 0.254 mm. In Isolation Routinf, generate geometry with the calculated Tool dia:</p>
+<pre class="literal-block">
+Tool dia:       1.246
+Width(passes):  1
+Pass overlap:   0.0
+Combine Passes: No
+</pre>
+<p>New geometry "profile.gbr_iso" is created. Delete the interior part by Edit Geometry &gt; Add Rectangle on inner line &gt; With Select tool, press CTRL and select Geometry and box respectively &gt; Cut Path &gt; Delete Shape both box and inner line &gt; Update Geometry.</p>
+<div class="figure">
+<img alt="/pic/nikola-tut/pcbmilling/flatcam3.JPG" src="../pic/nikola-tut/pcbmilling/flatcam3.JPG"><p class="caption">Add Rectangle &gt; Cut Path &gt; Delete Shape</p>
+</div>
+<div class="figure">
+<img alt="/pic/nikola-tut/pcbmilling/flatcam4.JPG" src="../pic/nikola-tut/pcbmilling/flatcam4.JPG"><p class="caption">Only outter profile left.</p>
+</div>
+<p>For small size PCB, you might need tabs to hold PCB in place while cutting. To do so, edit geometry &gt; draw boxes on where you want tabs&gt; cut path &gt; delete boxes. This PCB is big enough so I will move on to Create CNC Job. Note that Tool dia is 1.5 mm this time:</p>
+<pre class="literal-block">
+Cut Z:        -1.95
+Travel Z:      1.0
+Feed Rate:     150.0
+Tool dia:      1.5
+Spindle speed: 24,000
+Multi-Depth:   yes
+Depth/pass:    1
+</pre>
+<div class="figure">
+<img alt="/pic/nikola-tut/pcbmilling/flatcam5.JPG" src="../pic/nikola-tut/pcbmilling/flatcam5.JPG"><p class="caption">A closer look.</p>
+</div>
+<div class="figure">
+<img alt="/pic/nikola-tut/pcbmilling/flatcam6.JPG" src="../pic/nikola-tut/pcbmilling/flatcam6.JPG"><p class="caption">Cutting edges are on the middle of the profile.gbr's lines now.</p>
+</div>
+<p>New geometry "profile.gbr_iso_cnc" is created. Export G-Code. Now we are done with Flatcam.</p>
+</div>
+</div>
+<div class="section" id="machine-specific-g-code">
+<h2><a class="toc-backref" href="../posts/double-sided-pcb-milling/#id10">Machine specific G-code</a></h2>
+<p>Now we combine exported Gcode into a single file if they share the same cutting tool. A 0.1mm engrave bit is used for noncopper paint and isolation. A 0.6 and 0.9 mm drill bits are used for drilling. A 1.5 mm endmill is used for large holes and profile milling. This is example of my Gcode header:</p>
+<pre class="literal-block">
+G17
+G54
+G21
+G90
+$H
+G00 X7.999700Y75.7321
+M03 S24000
+G4 P1
+G00 Z1.0000
+G01 Z-0.0500 F200.00
+G01 X8.045600Y75.7418
+.....
+</pre>
+<p>My CNC has Surface grid-probing feature which helps compensate uneven surface automatically. Simply specify area you wanna probe with G32. M374 save probe results for next time usage.:</p>
+<pre class="literal-block">
+G32 X-143.790000 Y-77.1287 A105. B55.
+M374
+G4 P1
+G17
+G54
+G21
+G90
+$H
+G00 X7.999700Y75.7321
+M03 S24000
+G4 P1
+G00 Z1.0000
+G01 Z-0.0500 F200.00
+G01 X8.045600Y75.7418
+...
+</pre>
+<p>Also Tool length probe with G38.2 and G10 for work coordinate. M500 save the settings for next time usage.:</p>
+<pre class="literal-block">
+G32 X-143.790000 Y-77.1287 A105. B55.
+M374
+G4 P1
+G17
+G54
+G21
+G90
+G00 X4.000000Y74.000F2000.
+G4 P1
+G38.2 Z-20.
+G4 P2
+G10 L20 P1 Z0.
+M500
+G4 P1
+$H
+G00 X7.999700Y75.7321
+M03 S24000
+G4 P1
+G00 Z1.0000
+G01 Z-0.0500 F200.00
+G01 X8.045600Y75.7418
+</pre>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">G32 utilize Machine coordinate system (G53 values)</p>
+</div>
+<div class="figure">
+<img alt="/pic/nikola-tut/pcbmilling/flatcam7.JPG" src="../pic/nikola-tut/pcbmilling/flatcam7.JPG"><p class="caption">Gcode visualization of top layer isolation.</p>
+</div>
+<div class="figure">
+<img alt="/pic/nikola-tut/pcbmilling/flatcam8.JPG" src="../pic/nikola-tut/pcbmilling/flatcam8.JPG"><p class="caption">Gcode visualization of top layer soldermask.</p>
+</div>
+<div class="figure">
+<img alt="/pic/nikola-tut/pcbmilling/flatcam9.JPG" src="../pic/nikola-tut/pcbmilling/flatcam9.JPG"><p class="caption">Gcode visualization of bottom layer isolation.</p>
+</div>
+<div class="figure">
+<img alt="/pic/nikola-tut/pcbmilling/flatcam10.JPG" src="../pic/nikola-tut/pcbmilling/flatcam10.JPG"><p class="caption">Gcode visualization of bottom layer soldermask.</p>
+</div>
+<div class="figure">
+<img alt="/pic/nikola-tut/pcbmilling/flatcam11.JPG" src="../pic/nikola-tut/pcbmilling/flatcam11.JPG"><p class="caption">Gcode visualization of holes and profile milling.</p>
+</div>
+</div>
+<div class="section" id="milling-the-pcb">
+<h2><a class="toc-backref" href="../posts/double-sided-pcb-milling/#id11">Milling the PCB</a></h2>
+<div class="figure">
+<img alt="/pic/nikola-tut/pcbmilling/flatcam12.JPG" src="../pic/nikola-tut/pcbmilling/flatcam12.JPG"><p class="caption">Milling top layer.</p>
+</div>
+<div class="figure">
+<img alt="/pic/nikola-tut/pcbmilling/flatcam13.JPG" src="../pic/nikola-tut/pcbmilling/flatcam13.JPG"><p class="caption">Milling top layer soldermask.</p>
+</div>
+<div class="figure">
+<img alt="/pic/nikola-tut/pcbmilling/flatcam14.JPG" src="../pic/nikola-tut/pcbmilling/flatcam14.JPG"><p class="caption">Milling bottom layer.</p>
+</div>
+<div class="figure">
+<img alt="/pic/nikola-tut/pcbmilling/flatcam15.JPG" src="../pic/nikola-tut/pcbmilling/flatcam15.JPG"><p class="caption">Finshed PCB top side.</p>
+</div>
+<div class="figure">
+<img alt="/pic/nikola-tut/pcbmilling/flatcam16.JPG" src="../pic/nikola-tut/pcbmilling/flatcam16.JPG"><p class="caption">Finshed PCB bottom side.</p>
+</div>
+</div>
 </div>
     </div>
     </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/flatcam-installing-from-source/" class="u-url">Flatcam installing from source</a></h1>

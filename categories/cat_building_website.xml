@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gtopba (Posts about building_website)</title><link>https://gtopba.github.io/</link><description></description><atom:link href="https://gtopba.github.io/categories/cat_building_website.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2018 &lt;a href="mailto:gtopba@gmail.com"&gt;Warut Phothiphan&lt;/a&gt; </copyright><lastBuildDate>Sun, 20 May 2018 20:37:23 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Deploying the static website to GitHub.</title><link>https://gtopba.github.io/posts/deploying-the-static-website-to-github/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;p&gt;Assuming you already created a github.io repository following the instruction from this link &lt;a class="reference external" href="https://pages.github.com/"&gt;https://pages.github.com/&lt;/a&gt; and already install the 'Git&amp;lt;&lt;a class="reference external" href="https://git-scm.com/downloads"&gt;https://git-scm.com/downloads&lt;/a&gt;&amp;gt;'_ software according to your operating system. Given the original 'github_deploy&amp;lt;&lt;a class="reference external" href="https://getnikola.com/handbook.html#deploying-to-github"&gt;https://getnikola.com/handbook.html#deploying-to-github&lt;/a&gt;&amp;gt;'_ tutorial, I will explain more where you might get confused.&lt;/p&gt;
+&lt;p&gt;Initialize a git repository in your Nikola source directory by running:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git init.
+git remote add origin git@github.com:user/repository.git
+&lt;/pre&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;user : your Github username, for example, "deadbeef"&lt;/li&gt;
+&lt;li&gt;repository : your github.io repository, for example, deadbeef.github.io.git&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;so the command should be:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git remote add origin git@github.com:deadbeef/deadbeef.github.io.git
+&lt;/pre&gt;
+&lt;p&gt;Then, setup conf.py:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+GITHUB_SOURCE_BRANCH = 'src'
+GITHUB_DEPLOY_BRANCH = 'master'
+GITHUB_REMOTE_NAME = 'origin'
+GITHUB_COMMIT_SOURCE = True
+&lt;/pre&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;'src' means your Nikola source branch's name is src&lt;/li&gt;
+&lt;li&gt;'master' means your compiled static website branch's name is master&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Create a .gitignore file containing:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+cache
+.doit.db
+__pycache__
+output
+&lt;/pre&gt;
+&lt;p&gt;Finally, deploying:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+nikola github_deploy
+&lt;/pre&gt;
+&lt;p&gt;first time it will ask you to log in to your github account. Then, you should be able to access you website &lt;a class="reference external" href="https://deadbeef.github.io"&gt;https://deadbeef.github.io&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</description><category>git</category><category>github</category><category>nikola</category><guid>https://gtopba.github.io/posts/deploying-the-static-website-to-github/</guid><pubDate>Thu, 06 Jul 2017 15:24:34 GMT</pubDate></item><item><title>Customizing the website.</title><link>https://gtopba.github.io/posts/customizing-the-website/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;dl class="docutils"&gt;
+&lt;dt&gt;Create your homepage&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;By default your homepage is the main blog page showing all your posts. If you prefer the default homepage, simply skip this step. Use your favorite editor to create index.html file in the "pages" folder. This will be your main page. Now edit it as you want. You can see source code of my main page by clicking "Source" at the top-right corner of my website. Alternatively, go check all my source project in my Github src branch of this repository. You just need to do the body part as the header and footer will be added by the compiler according to the template.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="My homepage." src="https://gtopba.github.io/pic/nikola-tut/customise-homepage/body.JPG"&gt;
+&lt;p class="caption"&gt;Body part in the red box.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;in conf.py edit the following parameters to tell compiler to put the main blog page to sub-folder blog:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+INDEX_PATH = "blog"
+&lt;/pre&gt;
+&lt;p&gt;and to build the html page at main directory. The page.tmpl is the template that we will edit later:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+PAGES = (
+        ("pages/*.rst", "pages", "page.tmpl"),
+        ("pages/*.md", "pages", "page.tmpl"),
+        ("pages/*.txt", "pages", "page.tmpl"),
+        ("pages/*.html", "", "page.tmpl"),
+)
+&lt;/pre&gt;
+&lt;p class="last"&gt;Now you should have similar page like mine without those graphical icons which require 3rd party library. As I am using Cerulean theme, yours might look different. We will change the theme soon.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Add more tabs and drop-down menu on navigation bar&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;For example:&lt;/p&gt;
+&lt;pre class="last literal-block"&gt;
+NAVIGATION_LINKS = {
+        DEFAULT_LANG: (
+                ((      ("/blog/","Timeline"),("/pages/lst-ex/","List of examples")     ), "Blog"),
+                ("/archive.html", "Archive"),
+                ("/categories/", "Tags"),
+                ("/rss.xml", "RSS feed"),
+                ("/pages/about-me/", "About"),
+        ),
+}
+&lt;/pre&gt;
+&lt;/dd&gt;
+&lt;dt&gt;Change theme and edit template&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;Choose your favorite theme from &lt;a class="reference external" href="https://bootswatch.com/"&gt;https://bootswatch.com/&lt;/a&gt; then run this command with your favorite theme's name, for example, "cerulean":&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+nikola bootswatch_theme -s cerulean
+&lt;/pre&gt;
+&lt;p&gt;Now your new theme is installed. You can modify your theme by tweaking in to the css file inside your new theme folder. In this case&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+theme/custom/asset
+&lt;/pre&gt;
+&lt;p&gt;But we will get into that later. Now let's edit the templates by copying them from the base theme, in this case, bootstrap3:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+nikola theme -c base.tmpl
+nikola theme -c base_helper.tmpl
+&lt;/pre&gt;
+&lt;p&gt;This makes a copy of templates which overrides the parent template Bootstrap3. Firstly, have a look at base.tmpl, by default nikola inverse the navbar color. You can change navbar color to default.:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;lt;nav class="navbar navbar-default navbar-static-top"&amp;gt;
+&lt;/pre&gt;
+&lt;p&gt;In base_helper.tmpl we add a graphic library font-awesome. Go to &lt;a class="reference external" href="https://fontawesome.com/get-started"&gt;https://fontawesome.com/get-started&lt;/a&gt; and copy code similar to below and put it to roughly line 112 where you see other ccs libraries added:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+&amp;lt;link href="/fontawesome/fontawesome-all.css" rel="stylesheet"&amp;gt;
+&lt;/pre&gt;
+&lt;p class="last"&gt;Now you can use icons on your pages&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;</description><category>bootstrap</category><category>css</category><category>nikola</category><guid>https://gtopba.github.io/posts/customizing-the-website/</guid><pubDate>Thu, 06 Jul 2017 15:23:41 GMT</pubDate></item><item><title>An empty website and its folder structure.</title><link>https://gtopba.github.io/posts/generating-an-empty-website/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;div class="sidebar"&gt;
+&lt;p class="first sidebar-title"&gt;Tip: Demo site&lt;/p&gt;
+&lt;p&gt;You can generate a website containing demo contents in it by using --demo option:&lt;/p&gt;
+&lt;pre class="last literal-block"&gt;
+nikola init --demo my_first_site
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Now let's generate an empty site with any name such as "my_first_site". Navigate your terminal to the directory that you want to put your project folder on. Then run this command and follow its instructions:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+nikola init my_first_site
+&lt;/pre&gt;
+&lt;p&gt;Then create your first post and it will ask you to input post title. Your post file .rst will be created in "posts" folder. We will edit the post later:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+nikola new_post
+&lt;/pre&gt;
+&lt;p&gt;Build your website:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+nikola build
+&lt;/pre&gt;
+&lt;p&gt;Let's see your empty website on the browser. The -b option will open your default web browser automatically:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+nikola serve -b
+&lt;/pre&gt;
+&lt;p&gt;Press Ctrl+C to stop your web server.&lt;/p&gt;
+&lt;div class="section" id="the-project-s-folder-structure"&gt;
+&lt;h2&gt;The project's folder structure.&lt;/h2&gt;
+&lt;p&gt;After the initialization, you will get folder like this.&lt;/p&gt;
+&lt;img alt="Folder Structure" class="align-left" src="https://gtopba.github.io/pic/nikola-tut/folder_struc.JPG" style="width: 267.0px; height: 235.0px;"&gt;
+&lt;table border="1" class="docutils"&gt;
+&lt;colgroup&gt;
+&lt;col width="13%"&gt;
+&lt;col width="87%"&gt;
+&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;files&lt;/td&gt;
+&lt;td&gt;Everything in here will be copied to your output folder.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;galleries&lt;/td&gt;
+&lt;td&gt;Put your images folder here to generate gallery page.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;listings&lt;/td&gt;
+&lt;td&gt;Put your code here to show it. (&lt;a class="reference external" href="https://gtopba.github.io/pages/listings-demo"&gt;Learn more&lt;/a&gt; )&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;output&lt;/td&gt;
+&lt;td&gt;Your generated website.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;pages&lt;/td&gt;
+&lt;td&gt;All your pages are kept here.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;post&lt;/td&gt;
+&lt;td&gt;All your posts are kept here.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;conf.py&lt;/td&gt;
+&lt;td&gt;settings for Nikola.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Next post, we will customize our site.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>nikola</category><guid>https://gtopba.github.io/posts/generating-an-empty-website/</guid><pubDate>Thu, 06 Jul 2017 15:16:58 GMT</pubDate></item><item><title>Introduction to Nikola.</title><link>https://gtopba.github.io/posts/introduction-to-nikola/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;p&gt;Nikola is a static site and blog generator written in Python. Nikola-based sites don't run any code on the server, there is no way to process user input in forms. You can have animations, slides or whatever fancy CSS3/HTML5 thingie you like. It only means all that HTML is generated already before being uploaded.&lt;/p&gt;
+&lt;p&gt;On the other hand, most "modern" websites are dynamic in the sense that the contents of the site live in a database, and are converted into HTML only when a user wants to see the page. However, on dynamic sites, every time a reader wants a page, a whole lot of database queries are made. Then a whole pile of code chews that data, and HTML is produced, which is sent to the user. All that requires CPU and memory.&lt;/p&gt;
+&lt;p&gt;On a static site, the highly optimized HTTP server reads the file from disk (or, if it's a popular file, from disk cache), and sends it to the user. You could probably serve a bazillion (technical term) page views from a phone using static sites.&lt;/p&gt;
+&lt;p&gt;Using Nikola on Windows can be a little trickier. Most tutorial out there are mostly based on Linux and MacOS. As a Windows user, I sometime failed to follow those tutorials. However, you will just have to get through it once then you will be fine. Let's get started.&lt;/p&gt;
+&lt;div class="section" id="preparing-a-development-environment"&gt;
+&lt;h2&gt;Preparing a development environment&lt;/h2&gt;
+&lt;p&gt;Nikola runs on Python. So we need to install Python and necessary modules. All the modules will be installed inside an isolated Python virtual environment with it own libraries and site-packages. Virtual environment allows you to work on more than one project separately.&lt;/p&gt;
+&lt;p&gt;Note that I am using windows. Some command-line syntax may differ from other operating systems. There are several ways to install modules on Python. If you are interested in this topic, I would recommend you to check this out &lt;a class="reference external" href="https://www.youtube.com/user/sentdex"&gt;https://www.youtube.com/user/sentdex&lt;/a&gt;&lt;/p&gt;
+&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Download and install the latest version of Python at &lt;a class="reference external" href="https://www.python.org/downloads/release/python-361/"&gt;https://www.python.org/downloads/release/python-361/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Install virtualenv module by running this command in you terminal. In this case, the Windows command line (Start&amp;gt;cmd):&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+py -m pip install virtualenv
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Install virtualenvwrapper-win. Using the virtualenv through this wrapper is much easier:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+py -m pip install virtualenvwrapper-win
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Create a virtual environment with any name such as "nikola":&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+mkvirtualenv nikola
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Install Nikola package:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+pip install --upgrade "Nikola[extras]"
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Now you are ready to generate the first website. The next post will teach you how to genrate a static website. I would reccomend you to check out your new environment folder at C:/Users/[username]/Envs. Also learn more about the virtualenvwrapper command on their mainpage.&lt;/p&gt;
+&lt;div class="admonition note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;UPDATE 2018-05-15 : I have found a simpler way to create virtual environment and manage packages &lt;a class="reference external" href="https://gtopba.github.io/posts/using-python-virtual-environment-with-anaconda"&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>nikola</category><guid>https://gtopba.github.io/posts/introduction-to-nikola/</guid><pubDate>Thu, 06 Jul 2017 15:13:28 GMT</pubDate></item></channel></rss>

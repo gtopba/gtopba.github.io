@@ -1,10 +1,360 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gtopba</title><link>https://gtopba.github.io/</link><description>As I'm getting older, my brain's memory is getting poorer. This blog is my second memory back up.</description><atom:link href="https://gtopba.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2018 &lt;a href="mailto:gtopba@gmail.com"&gt;Warut Phothiphan&lt;/a&gt; </copyright><lastBuildDate>Sun, 20 May 2018 08:19:28 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Get started with ERPNext</title><link>https://gtopba.github.io/posts/get-started-with-erpnext/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><guid>https://gtopba.github.io/posts/get-started-with-erpnext/</guid><pubDate>Sun, 20 May 2018 08:14:11 GMT</pubDate></item><item><title>Compile Smoothieware from source</title><link>https://gtopba.github.io/posts/compile-smoothieware-from-source/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><guid>https://gtopba.github.io/posts/compile-smoothieware-from-source/</guid><pubDate>Sun, 20 May 2018 08:11:25 GMT</pubDate></item><item><title>Double-sided PCB milling</title><link>https://gtopba.github.io/posts/double-sided-pcb-milling/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;p&gt;What you will learn
-1. Export Gerber files from Eagle
-2. CAM process with Flatcam
-3. Machine specific G-code
-4. Milling the PCB&lt;/p&gt;
-&lt;p&gt;Previous post &lt;a class="reference external" href="https://gtopba.github.io/posts/flatcam-installing-from-source"&gt;Flatcam installing&lt;/a&gt; . Today, I'll show you the process of making 2-layer PCB.&lt;/p&gt;&lt;/div&gt;</description><category>flatcam</category><category>pcb</category><guid>https://gtopba.github.io/posts/double-sided-pcb-milling/</guid><pubDate>Fri, 18 May 2018 11:51:30 GMT</pubDate></item><item><title>Flatcam installing from source</title><link>https://gtopba.github.io/posts/flatcam-installing-from-source/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;dl class="docutils"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gtopba</title><link>https://gtopba.github.io/</link><description>As I'm getting older, my brain's memory is getting poorer. This blog is my second memory back up.</description><atom:link href="https://gtopba.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2018 &lt;a href="mailto:gtopba@gmail.com"&gt;Warut Phothiphan&lt;/a&gt; </copyright><lastBuildDate>Sun, 20 May 2018 20:50:35 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Get started with ERPNext</title><link>https://gtopba.github.io/posts/get-started-with-erpnext/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><guid>https://gtopba.github.io/posts/get-started-with-erpnext/</guid><pubDate>Sun, 20 May 2018 08:14:11 GMT</pubDate></item><item><title>Compile Smoothieware from source</title><link>https://gtopba.github.io/posts/compile-smoothieware-from-source/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;p&gt;Write your post here.&lt;/p&gt;</description><guid>https://gtopba.github.io/posts/compile-smoothieware-from-source/</guid><pubDate>Sun, 20 May 2018 08:11:25 GMT</pubDate></item><item><title>Double-sided PCB milling</title><link>https://gtopba.github.io/posts/double-sided-pcb-milling/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;div class="contents topic" id="contents"&gt;
+&lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#export-gerber-files-from-eagle" id="id1"&gt;Export Gerber files from Eagle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#cam-process-with-flatcam" id="id2"&gt;CAM process with Flatcam&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#configuring-the-project" id="id3"&gt;Configuring the project&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#create-mirror-axis-and-alignment-pins" id="id4"&gt;Create mirror axis and alignment pins&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#top-side-non-copper-area" id="id5"&gt;Top-side non-copper area&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#top-side-isolation" id="id6"&gt;Top-side isolation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#top-side-solder-mask" id="id7"&gt;Top-side solder mask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#drilling" id="id8"&gt;Drilling&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#cutouts" id="id9"&gt;Cutouts&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#machine-specific-g-code" id="id10"&gt;Machine specific G-code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#milling-the-pcb" id="id11"&gt;Milling the PCB&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="export-gerber-files-from-eagle"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#id1"&gt;Export Gerber files from Eagle&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;From your pcb eagle's project, open your board. Then export Gerber files following these 4 steps. Make sure you are working on Metric unit. We need to unselect cutouts as they are included in Excellon file already. Unzip your output file. That's it we are done with  Eagle.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="export gerber." src="https://gtopba.github.io/pic/nikola-tut/pcbmilling/eagle.JPG"&gt;
+&lt;p class="caption"&gt;Eagle export Gerber.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cam-process-with-flatcam"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#id2"&gt;CAM process with Flatcam&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Previous post &lt;a class="reference external" href="https://gtopba.github.io/posts/flatcam-installing-from-source"&gt;Flatcam installing&lt;/a&gt; . Today, I'll show you the process of making 2-layer PCB.&lt;/p&gt;
+&lt;div class="section" id="configuring-the-project"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#id3"&gt;Configuring the project&lt;/a&gt;&lt;/h3&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;Trailing Zeros&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;Eagle uses Trailing Zeros in its Excellon number format but does not properly report this format in the Excellon file. To tell FlatCAM to use this format by default set this system option excellon_zeros to T by using the set_sys command in the Shell Command Line Interface as shown below:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+set_sys excellon_zero T
+&lt;/pre&gt;
+&lt;div class="admonition note last"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;2018-05-18 : Current Flatcam source is having problem with this command. If need this functionality, use stable version.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/dd&gt;
+&lt;dt&gt;System unit&lt;/dt&gt;
+&lt;dd&gt;&lt;p class="first"&gt;From options tab, select Units as mm.&lt;/p&gt;
+&lt;div class="last figure"&gt;
+&lt;img alt="Units: mm" src="https://gtopba.github.io/pic/nikola-tut/pcbmilling/flatcam2.JPG"&gt;
+&lt;p class="caption"&gt;Units: mm&lt;/p&gt;
+&lt;/div&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+&lt;div class="section" id="create-mirror-axis-and-alignment-pins"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#id4"&gt;Create mirror axis and alignment pins&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="admonition alert alert-info pull-right tip"&gt;
+&lt;p class="first admonition-title"&gt;Tip&lt;/p&gt;
+&lt;p class="last"&gt;Each object can be moved to arbitrary location. Select object and go to selected tab then find offset tool.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Load Gerber files:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+copper_top.gbr
+copper_bottom.gbr
+soldermask_top.gbr
+soldermask_bottom.gbr
+profile.gbr
+&lt;/pre&gt;
+&lt;p&gt;Load Excellon file:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+drills.xln
+&lt;/pre&gt;
+&lt;p&gt;Mirror axis for bottom layer stuff, from menu bar, Tool -&amp;gt; Double-sided PCB Tool. Create mirror axis around Y axis at location x = 50 mm:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Mirror Axis: Y
+Axis Location: Point
+Point/Box: (50,0)
+&lt;/pre&gt;
+&lt;p&gt;Mirror bottom layer objects one by one from the drop-down menu and click "Mirror Object":&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+copper_bottom.gbr
+soldermask_bottom.gbr
+profile.gbr
+drills.xln
+&lt;/pre&gt;
+&lt;p&gt;Alignment Holes help align the pcb when we flip it over. Create holes with 6 mm in diameter at desired locations. Then click "Create Alignment Drill":&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Alignment Holes: (110, -5),(110, 60)
+Drill diam: 6
+&lt;/pre&gt;
+&lt;p&gt;You can generate gcode to cut Alignment Holes following similar process of the next section below. You can skip this for now and do it later.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="flatcam" src="https://gtopba.github.io/pic/nikola-tut/pcbmilling/flatcam1.JPG"&gt;
+&lt;p class="caption"&gt;Double-sided PCB Tool&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="top-side-non-copper-area"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#id5"&gt;Top-side non-copper area&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Hide all other layer except copper_top.gbr. Select this object then navigate to "Non-copper regions" section and generate geometry:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Boundary Margin: 0.1
+&lt;/pre&gt;
+&lt;p&gt;New geometry "copper_top.gbr_noncopper" is created. Navigate to "Paint Area" and generate paint area:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Tool dia:  0.1
+Overlap:   0.05
+Margin:    0.1
+Method:    standard
+Connect:   yes
+Contour:   yes
+Selection: All
+&lt;/pre&gt;
+&lt;p&gt;New geometry "copper_top.gbr_noncopper_paint" is created. Navigate to "Create CNC Job" and generate toolpath:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Cut Z:        -0.05
+Travel Z:      1.0
+Feed Rate:     250.0
+Tool dia:      0.1
+Spindle speed: 24,000
+Multi-Depth:   No
+&lt;/pre&gt;
+&lt;p&gt;New geometry "copper_top.gbr_noncopper_paint_cnc" is created. Navigate to "Export G-Code" and export gcode.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="top-side-isolation"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#id6"&gt;Top-side isolation&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Select "copper_top.gbr" and navigate to "Isolation Routing". Then generate geometry:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Tool dia:       0.145
+Width(#passes): 1
+Pass overlap:   0.0
+Combine Passes: No
+&lt;/pre&gt;
+&lt;p&gt;New geometry "copper_top.gbr_iso" is created. Navigate to "Create CNC Job" and generate toolpath:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Cut Z:        -0.05
+Travel Z:      1.0
+Feed Rate:     250.0
+Tool dia:      0.145
+Spindle speed: 24,000
+Multi-Depth:   No
+&lt;/pre&gt;
+&lt;p&gt;New geometry "copper_top.gbr_iso_cnc" is created. Navigate to "Export G-Code" and export gcode.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="top-side-solder-mask"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#id7"&gt;Top-side solder mask&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Select "soldermask_top.gbr" and navigate to "Isolation Routing". Then generate geometry:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Tool dia:       0.0
+Width(#passes): 1
+Pass overlap:   0.0
+Combine Passes: No
+&lt;/pre&gt;
+&lt;p&gt;New geometry "soldermask_top.gbr_iso" is created. Navigate to "Paint Area" and generate paint area:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Tool dia:  0.1
+Overlap:   0.05
+Margin:    0.1
+Method:    standard
+Connect:   yes
+Contour:   yes
+Selection: All
+&lt;/pre&gt;
+&lt;p&gt;New geometry "soldermask_top.gbr_iso_paint" is created. Navigate to "Create CNC Job" and generate toolpath:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Cut Z:        -0.05
+Travel Z:      1.0
+Feed Rate:     400.0
+Tool dia:      0.1
+Spindle speed: 24,000
+Multi-Depth:   No
+&lt;/pre&gt;
+&lt;p&gt;New geometry "soldermask_top.gbr_iso_paint_cnc" is created. Navigate to "Export G-Code" and export gcode. That's it for the top layer. Now flip over the PCB. The alignment holes helps keep PCB in correct position. The bottom-side non-copper area, isolation, soldermask are identical to the top layer.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="drilling"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#id8"&gt;Drilling&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;In drills.xln's Tools selection, choose hole sizes needed for drilling, excluding those large holes which need milling. Holes larger than 1 mm in diameter, I will use milling process instead. So select:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+0.406
+0.61
+0.95
+1.016
+&lt;/pre&gt;
+&lt;p&gt;In Create CNC Job section:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Cut Z:        -1.95
+Travel Z:      1.0
+Feed Rate:     150.0
+Tool change:   yes
+Tool change Z: 50
+Spindle speed: 24,000
+&lt;/pre&gt;
+&lt;p&gt;New geometry "drills.xln_cnc" is created. Navigate to "Export G-Code" and export gcode. Next, select drills.xln again and choose hole sizes for milling:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+2.2
+3.2
+3.302
+&lt;/pre&gt;
+&lt;p&gt;At Mill Holes section, generate geometry:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Tool dia: 1.5
+&lt;/pre&gt;
+&lt;p&gt;New geometry "soldermask_top.gbr_iso_paint" is created. Navigate to "Create CNC Job" and generate toolpath:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Cut Z:        -1.95
+Travel Z:      1.0
+Feed Rate:     150.0
+Tool dia:      1.5
+Spindle speed: 24,000
+Multi-Depth:   yes
+Depth/pass:    1
+&lt;/pre&gt;
+&lt;p&gt;New geometry "drills.xln_mill_cnc" is created. Navigate to "Export G-Code" and export gcode.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cutouts"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#id9"&gt;Cutouts&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This is a bit tricky. We need the cut edges pass right through the middle of profile lines. The measurement tool indicates 0.254 mm line thickness. For 1.5 mm tool dia, we set Tool dia = 1.5 - 0.254 mm. In Isolation Routinf, generate geometry with the calculated Tool dia:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Tool dia:       1.246
+Width(passes):  1
+Pass overlap:   0.0
+Combine Passes: No
+&lt;/pre&gt;
+&lt;p&gt;New geometry "profile.gbr_iso" is created. Delete the interior part by Edit Geometry &amp;gt; Add Rectangle on inner line &amp;gt; With Select tool, press CTRL and select Geometry and box respectively &amp;gt; Cut Path &amp;gt; Delete Shape both box and inner line &amp;gt; Update Geometry.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="/pic/nikola-tut/pcbmilling/flatcam3.JPG" src="https://gtopba.github.io/pic/nikola-tut/pcbmilling/flatcam3.JPG"&gt;
+&lt;p class="caption"&gt;Add Rectangle &amp;gt; Cut Path &amp;gt; Delete Shape&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="/pic/nikola-tut/pcbmilling/flatcam4.JPG" src="https://gtopba.github.io/pic/nikola-tut/pcbmilling/flatcam4.JPG"&gt;
+&lt;p class="caption"&gt;Only outter profile left.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;For small size PCB, you might need tabs to hold PCB in place while cutting. To do so, edit geometry &amp;gt; draw boxes on where you want tabs&amp;gt; cut path &amp;gt; delete boxes. This PCB is big enough so I will move on to Create CNC Job. Note that Tool dia is 1.5 mm this time:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+Cut Z:        -1.95
+Travel Z:      1.0
+Feed Rate:     150.0
+Tool dia:      1.5
+Spindle speed: 24,000
+Multi-Depth:   yes
+Depth/pass:    1
+&lt;/pre&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="/pic/nikola-tut/pcbmilling/flatcam5.JPG" src="https://gtopba.github.io/pic/nikola-tut/pcbmilling/flatcam5.JPG"&gt;
+&lt;p class="caption"&gt;A closer look.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="/pic/nikola-tut/pcbmilling/flatcam6.JPG" src="https://gtopba.github.io/pic/nikola-tut/pcbmilling/flatcam6.JPG"&gt;
+&lt;p class="caption"&gt;Cutting edges are on the middle of the profile.gbr's lines now.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;New geometry "profile.gbr_iso_cnc" is created. Export G-Code. Now we are done with Flatcam.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="machine-specific-g-code"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#id10"&gt;Machine specific G-code&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Now we combine exported Gcode into a single file if they share the same cutting tool. A 0.1mm engrave bit is used for noncopper paint and isolation. A 0.6 and 0.9 mm drill bits are used for drilling. A 1.5 mm endmill is used for large holes and profile milling. This is example of my Gcode header:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+G17
+G54
+G21
+G90
+$H
+G00 X7.999700Y75.7321
+M03 S24000
+G4 P1
+G00 Z1.0000
+G01 Z-0.0500 F200.00
+G01 X8.045600Y75.7418
+.....
+&lt;/pre&gt;
+&lt;p&gt;My CNC has Surface grid-probing feature which helps compensate uneven surface automatically. Simply specify area you wanna probe with G32. M374 save probe results for next time usage.:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+G32 X-143.790000 Y-77.1287 A105. B55.
+M374
+G4 P1
+G17
+G54
+G21
+G90
+$H
+G00 X7.999700Y75.7321
+M03 S24000
+G4 P1
+G00 Z1.0000
+G01 Z-0.0500 F200.00
+G01 X8.045600Y75.7418
+...
+&lt;/pre&gt;
+&lt;p&gt;Also Tool length probe with G38.2 and G10 for work coordinate. M500 save the settings for next time usage.:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+G32 X-143.790000 Y-77.1287 A105. B55.
+M374
+G4 P1
+G17
+G54
+G21
+G90
+G00 X4.000000Y74.000F2000.
+G4 P1
+G38.2 Z-20.
+G4 P2
+G10 L20 P1 Z0.
+M500
+G4 P1
+$H
+G00 X7.999700Y75.7321
+M03 S24000
+G4 P1
+G00 Z1.0000
+G01 Z-0.0500 F200.00
+G01 X8.045600Y75.7418
+&lt;/pre&gt;
+&lt;div class="admonition important"&gt;
+&lt;p class="first admonition-title"&gt;Important&lt;/p&gt;
+&lt;p class="last"&gt;G32 utilize Machine coordinate system (G53 values)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="/pic/nikola-tut/pcbmilling/flatcam7.JPG" src="https://gtopba.github.io/pic/nikola-tut/pcbmilling/flatcam7.JPG"&gt;
+&lt;p class="caption"&gt;Gcode visualization of top layer isolation.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="/pic/nikola-tut/pcbmilling/flatcam8.JPG" src="https://gtopba.github.io/pic/nikola-tut/pcbmilling/flatcam8.JPG"&gt;
+&lt;p class="caption"&gt;Gcode visualization of top layer soldermask.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="/pic/nikola-tut/pcbmilling/flatcam9.JPG" src="https://gtopba.github.io/pic/nikola-tut/pcbmilling/flatcam9.JPG"&gt;
+&lt;p class="caption"&gt;Gcode visualization of bottom layer isolation.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="/pic/nikola-tut/pcbmilling/flatcam10.JPG" src="https://gtopba.github.io/pic/nikola-tut/pcbmilling/flatcam10.JPG"&gt;
+&lt;p class="caption"&gt;Gcode visualization of bottom layer soldermask.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="/pic/nikola-tut/pcbmilling/flatcam11.JPG" src="https://gtopba.github.io/pic/nikola-tut/pcbmilling/flatcam11.JPG"&gt;
+&lt;p class="caption"&gt;Gcode visualization of holes and profile milling.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="milling-the-pcb"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#id11"&gt;Milling the PCB&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="/pic/nikola-tut/pcbmilling/flatcam12.JPG" src="https://gtopba.github.io/pic/nikola-tut/pcbmilling/flatcam12.JPG"&gt;
+&lt;p class="caption"&gt;Milling top layer.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="/pic/nikola-tut/pcbmilling/flatcam13.JPG" src="https://gtopba.github.io/pic/nikola-tut/pcbmilling/flatcam13.JPG"&gt;
+&lt;p class="caption"&gt;Milling top layer soldermask.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="/pic/nikola-tut/pcbmilling/flatcam14.JPG" src="https://gtopba.github.io/pic/nikola-tut/pcbmilling/flatcam14.JPG"&gt;
+&lt;p class="caption"&gt;Milling bottom layer.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="/pic/nikola-tut/pcbmilling/flatcam15.JPG" src="https://gtopba.github.io/pic/nikola-tut/pcbmilling/flatcam15.JPG"&gt;
+&lt;p class="caption"&gt;Finshed PCB top side.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="/pic/nikola-tut/pcbmilling/flatcam16.JPG" src="https://gtopba.github.io/pic/nikola-tut/pcbmilling/flatcam16.JPG"&gt;
+&lt;p class="caption"&gt;Finshed PCB bottom side.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>flatcam</category><category>pcb</category><guid>https://gtopba.github.io/posts/double-sided-pcb-milling/</guid><pubDate>Fri, 18 May 2018 11:51:30 GMT</pubDate></item><item><title>Flatcam installing from source</title><link>https://gtopba.github.io/posts/flatcam-installing-from-source/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;dl class="docutils"&gt;
 &lt;dt&gt;Create new Python 2.7 environment and install dependencies.&lt;/dt&gt;
 &lt;dd&gt;&lt;p class="first"&gt;Follow this tutorial &lt;a class="reference external" href="https://gtopba.github.io/posts/using-python-virtual-environment-with-anaconda"&gt;Using Python virtual environment with Anaconda&lt;/a&gt;. Then open up your new environment terminal. Make sure it is python 2.7 by:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
