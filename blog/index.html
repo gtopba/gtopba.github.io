@@ -78,7 +78,67 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/get-started-with-erpnext/" class="u-url">Get started with ERPNext</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/github-fork-sync-fork/" class="u-url">Github Fork, Sync Fork</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Warut Phothiphan
+            </span></p>
+            <p class="dateline"><a href="../posts/github-fork-sync-fork/" rel="bookmark"><time class="published dt-published" datetime="2018-05-24T15:20:52+07:00" title="2018-05-24 15:20">2018-05-24 15:20</time></a></p>
+                <p class="commentline">
+        
+    <a href="../posts/github-fork-sync-fork/#disqus_thread" data-disqus-identifier="cache/posts/github-fork-sync-fork.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div>
+<div class="section" id="fork">
+<h2>Fork</h2>
+<p>In the top-right corner of the page, click Fork. That's it! Now, you have a fork of the original repository. You can now modified your fork without effecting the original repo. New commits from the main repo won't effect your fork. You need to manually sync your fork with the original repo.</p>
+</div>
+<div class="section" id="sync-fork">
+<h2>Sync Fork</h2>
+<p>Create a local clone of your fork:</p>
+<pre class="literal-block">
+git clone https://github.com/YOUR-USERNAME/YOUR-FORK.git
+</pre>
+<p>sync your fork with the original repository:</p>
+<pre class="literal-block">
+git remote -v
+git remote add upstream https://github.com/ORIGINAL-OWNER/ORIGINAL-REPO.git
+git remote -v
+git fetch upstream
+</pre>
+<p>Check out your fork's local master branch.:</p>
+<pre class="literal-block">
+git checkout master
+</pre>
+<p>Merge the changes from upstream/master into your local master branch. This brings your fork's master branch into sync with the upstream repository, without losing your local changes.:</p>
+<pre class="literal-block">
+git merge upstream/master
+</pre>
+<p>push commits made on your local branch to a remote repository.:</p>
+<pre class="literal-block">
+git push  &lt;REMOTENAME&gt; &lt;BRANCHNAME&gt;
+</pre>
+<p>As an example, you usually run git push origin master to push your local changes to your online repository.</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<div class="section" id="references">
+<h3>References</h3>
+<div class="line-block">
+<div class="line"><a class="reference external" href="https://help.github.com/articles/fork-a-repo/">Fork a repo</a></div>
+<div class="line"><a class="reference external" href="https://help.github.com/articles/set-up-git/#next-steps-authenticating-with-github-from-git">Authenticating with GitHub from Git</a></div>
+<div class="line"><a class="reference external" href="https://help.github.com/articles/syncing-a-fork/">Syncing a fork</a></div>
+<div class="line"><a class="reference external" href="https://help.github.com/articles/pushing-to-a-remote/">Pushing to a remote</a></div>
+</div>
+</div>
+</div>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/get-started-with-erpnext/" class="u-url">Get started with ERPNext</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Warut Phothiphan
@@ -337,7 +397,7 @@ Depth/pass:    1
 </div>
 <div class="section" id="cutouts">
 <h3><a class="toc-backref" href="../posts/double-sided-pcb-milling/#id9">Cutouts</a></h3>
-<p>This is a bit tricky. We need the cut edges pass right through the middle of profile lines. The measurement tool indicates 0.254 mm line thickness. For 1.5 mm tool dia, we set Tool dia = 1.5 - 0.254 mm. In Isolation Routinf, generate geometry with the calculated Tool dia:</p>
+<p>This is a bit tricky. We need the cut edges pass right through the middle of profile lines. The measurement tool indicates 0.254 mm line thickness. For 1.5 mm tool dia, we set Tool dia = 1.5 - 0.254 mm. In Isolation Routing, generate geometry with the calculated Tool dia:</p>
 <pre class="literal-block">
 Tool dia:       1.246
 Width(passes):  1
@@ -492,11 +552,7 @@ python -V
 </pre>
 <p>Install packages:</p>
 <pre class="literal-block">
-pip install matplotlib
-pip install pypiwin32
-pip install pywin32
-pip install svg.path
-pip install scipy
+pip install --upgrade matplotlib pypiwin32 svg.path scipy
 </pre>
 <p>note : Numpy already existed in the Anaconda environment. Use this command to check available package:</p>
 <pre class="literal-block">
@@ -504,10 +560,10 @@ pip freeze
 </pre>
 <p>These packages are for Windows user. The .whl file is a pre-compiled package with its dependencies included. Simply download the following Python 2.7 64-bit packages and navigate your terminal to the containing folder.</p>
 <ul class="simple">
-<li><a class="reference external" href="http://www.riverbankcomputing.co.uk/software/pyqt/">PyQt4</a></li>
-<li><a class="reference external" href="https://github.com/Toblerity/Shapely">Shapely</a></li>
-<li><a class="reference external" href="https://github.com/Toblerity/rtree">RTree</a></li>
-<li><a class="reference external" href="https://github.com/simplejson/simplejson">Simplejson</a></li>
+<li><a class="reference external" href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyqt4">PyQt4</a></li>
+<li><a class="reference external" href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#shapely">Shapely</a></li>
+<li><a class="reference external" href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#rtree">RTree</a></li>
+<li><a class="reference external" href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#simplejson">Simplejson</a></li>
 </ul>
 <p>Run this command to install the packages:</p>
 <pre class="literal-block">

@@ -14,11 +14,7 @@ Create new Python 2.7 environment and install dependencies.
 		
 	Install packages::
 	
-		pip install matplotlib
-		pip install pypiwin32
-		pip install pywin32
-		pip install svg.path
-		pip install scipy
+		pip install --upgrade matplotlib pypiwin32 svg.path scipy
 		
 	note : Numpy already existed in the Anaconda environment. Use this command to check available package::
 	
@@ -26,10 +22,10 @@ Create new Python 2.7 environment and install dependencies.
 	
 	These packages are for Windows user. The .whl file is a pre-compiled package with its dependencies included. Simply download the following Python 2.7 64-bit packages and navigate your terminal to the containing folder.
 	
-	+ `PyQt4 <http://www.riverbankcomputing.co.uk/software/pyqt/>`_
-	+ `Shapely <https://github.com/Toblerity/Shapely>`_
-	+ `RTree <https://github.com/Toblerity/rtree>`_
-	+ `Simplejson <https://github.com/simplejson/simplejson>`_
+	+ `PyQt4 <https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyqt4>`_
+	+ `Shapely <https://www.lfd.uci.edu/~gohlke/pythonlibs/#shapely>`_
+	+ `RTree <https://www.lfd.uci.edu/~gohlke/pythonlibs/#rtree>`_
+	+ `Simplejson <https://www.lfd.uci.edu/~gohlke/pythonlibs/#simplejson>`_
 	
 	Run this command to install the packages::
 	

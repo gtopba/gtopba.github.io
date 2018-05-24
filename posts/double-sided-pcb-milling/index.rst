@@ -208,7 +208,7 @@ New geometry "drills.xln_mill_cnc" is created. Navigate to "Export G-Code" and e
 	
 Cutouts
 -------
-This is a bit tricky. We need the cut edges pass right through the middle of profile lines. The measurement tool indicates 0.254 mm line thickness. For 1.5 mm tool dia, we set Tool dia = 1.5 - 0.254 mm. In Isolation Routinf, generate geometry with the calculated Tool dia::
+This is a bit tricky. We need the cut edges pass right through the middle of profile lines. The measurement tool indicates 0.254 mm line thickness. For 1.5 mm tool dia, we set Tool dia = 1.5 - 0.254 mm. In Isolation Routing, generate geometry with the calculated Tool dia::
 
 	Tool dia:       1.246
 	Width(passes):  1

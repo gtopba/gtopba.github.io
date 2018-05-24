@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gtopba (Posts about pcb)</title><link>https://gtopba.github.io/</link><description></description><atom:link href="https://gtopba.github.io/categories/pcb.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2018 &lt;a href="mailto:gtopba@gmail.com"&gt;Warut Phothiphan&lt;/a&gt; </copyright><lastBuildDate>Sun, 20 May 2018 20:50:35 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Double-sided PCB milling</title><link>https://gtopba.github.io/posts/double-sided-pcb-milling/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;div class="contents topic" id="contents"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gtopba (Posts about pcb)</title><link>https://gtopba.github.io/</link><description></description><atom:link href="https://gtopba.github.io/categories/pcb.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2018 &lt;a href="mailto:gtopba@gmail.com"&gt;Warut Phothiphan&lt;/a&gt; </copyright><lastBuildDate>Thu, 24 May 2018 08:43:16 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Double-sided PCB milling</title><link>https://gtopba.github.io/posts/double-sided-pcb-milling/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;div class="contents topic" id="contents"&gt;
 &lt;p class="topic-title first"&gt;Contents&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;&lt;a class="reference internal" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#export-gerber-files-from-eagle" id="id1"&gt;Export Gerber files from Eagle&lt;/a&gt;&lt;/li&gt;
@@ -211,7 +211,7 @@ Depth/pass:    1
 &lt;/div&gt;
 &lt;div class="section" id="cutouts"&gt;
 &lt;h3&gt;&lt;a class="toc-backref" href="https://gtopba.github.io/posts/double-sided-pcb-milling/#id9"&gt;Cutouts&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;This is a bit tricky. We need the cut edges pass right through the middle of profile lines. The measurement tool indicates 0.254 mm line thickness. For 1.5 mm tool dia, we set Tool dia = 1.5 - 0.254 mm. In Isolation Routinf, generate geometry with the calculated Tool dia:&lt;/p&gt;
+&lt;p&gt;This is a bit tricky. We need the cut edges pass right through the middle of profile lines. The measurement tool indicates 0.254 mm line thickness. For 1.5 mm tool dia, we set Tool dia = 1.5 - 0.254 mm. In Isolation Routing, generate geometry with the calculated Tool dia:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 Tool dia:       1.246
 Width(passes):  1
@@ -362,11 +362,7 @@ python -V
 &lt;/pre&gt;
 &lt;p&gt;Install packages:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
-pip install matplotlib
-pip install pypiwin32
-pip install pywin32
-pip install svg.path
-pip install scipy
+pip install --upgrade matplotlib pypiwin32 svg.path scipy
 &lt;/pre&gt;
 &lt;p&gt;note : Numpy already existed in the Anaconda environment. Use this command to check available package:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
@@ -374,10 +370,10 @@ pip freeze
 &lt;/pre&gt;
 &lt;p&gt;These packages are for Windows user. The .whl file is a pre-compiled package with its dependencies included. Simply download the following Python 2.7 64-bit packages and navigate your terminal to the containing folder.&lt;/p&gt;
 &lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="http://www.riverbankcomputing.co.uk/software/pyqt/"&gt;PyQt4&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/Toblerity/Shapely"&gt;Shapely&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/Toblerity/rtree"&gt;RTree&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/simplejson/simplejson"&gt;Simplejson&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyqt4"&gt;PyQt4&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#shapely"&gt;Shapely&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#rtree"&gt;RTree&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://www.lfd.uci.edu/~gohlke/pythonlibs/#simplejson"&gt;Simplejson&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Run this command to install the packages:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
