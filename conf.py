@@ -1235,7 +1235,22 @@ SOCIAL_BUTTONS_CODE = """
 # Google Analytics or whatever else you use. Added to the bottom of <body>
 # in the default template (base.tmpl).
 # (translatable)
-# BODY_END = ""
+BODY_END = """
+	<!-- Statcounter code -->
+	<script type="text/javascript">
+	var sc_project=11720342; 
+	var sc_invisible=1; 
+	var sc_security="33972beb"; 
+	var scJsHost = (("https:" == document.location.protocol) ? "https://secure." : "http://www.");
+	document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+ "statcounter.com/counter/counter.js'></"+"script>");
+	</script>
+	<noscript>
+		<div class="statcounter">
+		<a title="Web Analytics" href="http://statcounter.com/" target="_blank"><img class="statcounter" src="//c.statcounter.com/11720342/0/33972beb/0/" alt="Web Analytics"></a>
+		</div>
+	</noscript>
+	<!-- End of Statcounter Code -->
+"""
 
 # The possibility to extract metadata from the filename by using a
 # regular expression.
