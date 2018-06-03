@@ -19,7 +19,7 @@
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/categories/cat_software.xml</loc>
-  <lastmod>2018-05-24T10:33:00Z</lastmod>
+  <lastmod>2018-06-03T19:00:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/categories/css.xml</loc>
@@ -31,11 +31,15 @@
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/categories/git.xml</loc>
-  <lastmod>2018-05-24T10:33:00Z</lastmod>
+  <lastmod>2018-06-03T19:00:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/categories/github.xml</loc>
-  <lastmod>2018-05-24T10:33:00Z</lastmod>
+  <lastmod>2018-06-03T19:00:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://gtopba.github.io/categories/linux.xml</loc>
+  <lastmod>2018-06-03T19:00:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/categories/nikola.xml</loc>
@@ -55,10 +59,10 @@
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/rss.xml</loc>
-  <lastmod>2018-05-24T10:33:00Z</lastmod>
+  <lastmod>2018-06-03T19:00:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://gtopba.github.io/sitemap.xml</loc>
-  <lastmod>2018-05-24T10:39:00Z</lastmod>
+  <lastmod>2018-06-03T19:00:00Z</lastmod>
  </sitemap>
 </sitemapindex>

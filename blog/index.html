@@ -11,6 +11,7 @@
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
 <link rel="canonical" href="https://gtopba.github.io/blog/">
+<link rel="next" href="index-1.html" type="text/html">
 <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]-->
 </head>
 <body>
@@ -78,7 +79,169 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/github-fork-sync-fork/" class="u-url">Github Fork, Sync Fork</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/adding-an-existing-project-to-github/" class="u-url">Adding an existing project to GitHub</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Warut Phothiphan
+            </span></p>
+            <p class="dateline"><a href="../posts/adding-an-existing-project-to-github/" rel="bookmark"><time class="published dt-published" datetime="2018-06-04T01:48:57+07:00" title="2018-06-04 01:48">2018-06-04 01:48</time></a></p>
+                <p class="commentline">
+        
+    <a href="../posts/adding-an-existing-project-to-github/#disqus_thread" data-disqus-identifier="cache/posts/adding-an-existing-project-to-github.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div>
+<ol class="arabic">
+<li>
+<p class="first">Create a new repository on GitHub. To avoid errors, do not initialize the new repository with README, license, or gitignore files. You can add these files after your project has been pushed to GitHub.</p>
+</li>
+<li>
+<p class="first">Initialize the local directory as a Git repository.:</p>
+<pre class="literal-block">
+git init
+</pre>
+</li>
+<li>
+<p class="first">Add the files in your new local repository. This stages them for the first commit. '.' means all files:</p>
+<pre class="literal-block">
+git add .
+</pre>
+</li>
+<li>
+<p class="first">Commit the files that you've staged in your local repository.:</p>
+<pre class="literal-block">
+git commit -m "First commit"
+</pre>
+</li>
+<li>
+<p class="first">add the URL for the remote repository where your local repository will be pushed.:</p>
+<pre class="literal-block">
+git remote add origin remote repository URL
+git remote -v
+</pre>
+</li>
+<li>
+<p class="first">Push the changes in your local repository to GitHub.:</p>
+<pre class="literal-block">
+git push origin master
+</pre>
+</li>
+</ol>
+<div class="section" id="references">
+<h2>References</h2>
+<p><a class="reference external" href="https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/">Adding an existing project to GitHub using the command line</a></p>
+</div>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/my-github-workflow/" class="u-url">My github workflow</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Warut Phothiphan
+            </span></p>
+            <p class="dateline"><a href="../posts/my-github-workflow/" rel="bookmark"><time class="published dt-published" datetime="2018-06-04T01:48:13+07:00" title="2018-06-04 01:48">2018-06-04 01:48</time></a></p>
+                <p class="commentline">
+        
+    <a href="../posts/my-github-workflow/#disqus_thread" data-disqus-identifier="cache/posts/my-github-workflow.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div>
+<p>Select branch e.g. master branch. the current branch is called HEAD:</p>
+<pre class="literal-block">
+git checkout master
+</pre>
+<p>check HEAD:</p>
+<pre class="literal-block">
+cat .git/HEAD
+</pre>
+<p>modify the code then commit:</p>
+<pre class="literal-block">
+git commit -m "leave some note here"
+</pre>
+<p>we might want to undo commit:</p>
+<pre class="literal-block">
+git reset --hard HEAD~1
+</pre>
+<p>or undo to specified commit:</p>
+<pre class="literal-block">
+git reset --hard commit_sha
+</pre>
+<p>check your local branch with the remote:</p>
+<pre class="literal-block">
+git status
+</pre>
+<p>push the local commits to remote branch e.g. remote name "origin", branch name "master":</p>
+<pre class="literal-block">
+git push origin master
+</pre>
+<p>more common command check:</p>
+<pre class="literal-block">
+git help everyday
+</pre>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/grep-searches-for-pattern/" class="u-url">grep searches for PATTERN.</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Warut Phothiphan
+            </span></p>
+            <p class="dateline"><a href="../posts/grep-searches-for-pattern/" rel="bookmark"><time class="published dt-published" datetime="2018-05-25T11:28:01+07:00" title="2018-05-25 11:28">2018-05-25 11:28</time></a></p>
+                <p class="commentline">
+        
+    <a href="../posts/grep-searches-for-pattern/#disqus_thread" data-disqus-identifier="cache/posts/grep-searches-for-pattern.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div>
+<p>grep searches for PATTERN in each FILE. A FILE of “-” stands for standard input. If no FILE is given, recursive searches examine the working  directory, and nonrecursive searches read standard input. By default, grep prints the matching lines.:</p>
+<pre class="literal-block">
+grep -rnw '/path/to/somewhere/' -e 'pattern'
+</pre>
+<ul class="simple">
+<li>-r or -R  is recursive,</li>
+<li>-n is line number, and</li>
+<li>-w stands for match the whole word.</li>
+<li>-l (lower-case L) can be added to just give the file name of matching files.</li>
+</ul>
+<p>Along with these, --exclude, --include, --exclude-dir flags could be used for efficient searching.</p>
+<ul>
+<li>
+<p class="first">This will only search through those files which have .c or .h extensions:</p>
+<pre class="literal-block">
+grep --include=\*.{c,h} -rnw '/path/to/somewhere/' -e "pattern"
+</pre>
+</li>
+<li>
+<p class="first">This will exclude searching all the files ending with .o extension:</p>
+<pre class="literal-block">
+grep --exclude=*.o -rnw '/path/to/somewhere/' -e "pattern"
+</pre>
+</li>
+<li>
+<p class="first">For directories it's possible to exclude a particular directory(ies) through --exclude-dirDocuments parameter. For example, this will exclude the dirs dir1/, dir2/ and all of them matching .dst/:</p>
+<pre class="literal-block">
+grep --exclude-dir={dir1,dir2,*.dst} -rnw '/path/to/somewhere/' -e "pattern"
+</pre>
+</li>
+</ul>
+<p>For more options check man grep.</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<div class="section" id="references">
+<h2>References</h2>
+<p><a class="reference external" href="https://stackoverflow.com/questions/16956810/how-do-i-find-all-files-containing-specific-text-on-linux">rakib_</a></p>
+</div>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/github-fork-sync-fork/" class="u-url">Github Fork, Sync Fork</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Warut Phothiphan
@@ -110,19 +273,19 @@ git remote add upstream https://github.com/ORIGINAL-OWNER/ORIGINAL-REPO.git
 git remote -v
 git fetch upstream
 </pre>
-<p>Check out your fork's local master branch.:</p>
+<p>Check out your fork's local branch.:</p>
 <pre class="literal-block">
-git checkout master
+git checkout edge
 </pre>
-<p>Merge the changes from upstream/master into your local master branch. This brings your fork's master branch into sync with the upstream repository, without losing your local changes.:</p>
+<p>Merge the changes from upstream/edge into your local edge branch. This brings your fork's edge branch into sync with the upstream repository, without losing your local changes.:</p>
 <pre class="literal-block">
-git merge upstream/master
+git merge upstream/edge
 </pre>
 <p>push commits made on your local branch to a remote repository.:</p>
 <pre class="literal-block">
 git push  &lt;REMOTENAME&gt; &lt;BRANCHNAME&gt;
 </pre>
-<p>As an example, you usually run git push origin master to push your local changes to your online repository.</p>
+<p>As an example, you usually run git push origin edge to push your local changes to your online repository.</p>
 <div class="line-block">
 <div class="line"><br></div>
 </div>
@@ -682,241 +845,14 @@ nikola github_deploy
 <p>first time it will ask you to log in to your github account. Then, you should be able to access you website <a class="reference external" href="https://deadbeef.github.io">https://deadbeef.github.io</a></p>
 </div>
     </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/customizing-the-website/" class="u-url">Customizing the website.</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Warut Phothiphan
-            </span></p>
-            <p class="dateline"><a href="../posts/customizing-the-website/" rel="bookmark"><time class="published dt-published" datetime="2017-07-06T22:23:41+07:00" title="2017-07-06 22:23">2017-07-06 22:23</time></a></p>
-                <p class="commentline">
-        
-    <a href="../posts/customizing-the-website/#disqus_thread" data-disqus-identifier="cache/posts/customizing-the-website.html">Comments</a>
-
-
-        </p>
-</div>
-    </header><div class="p-summary entry-summary">
-    <dl class="docutils">
-<dt>Create your homepage</dt>
-<dd>
-<p class="first">By default your homepage is the main blog page showing all your posts. If you prefer the default homepage, simply skip this step. Use your favorite editor to create index.html file in the "pages" folder. This will be your main page. Now edit it as you want. You can see source code of my main page by clicking "Source" at the top-right corner of my website. Alternatively, go check all my source project in my Github src branch of this repository. You just need to do the body part as the header and footer will be added by the compiler according to the template.</p>
-<div class="figure">
-<img alt="My homepage." src="../pic/nikola-tut/customise-homepage/body.JPG"><p class="caption">Body part in the red box.</p>
-</div>
-<p>in conf.py edit the following parameters to tell compiler to put the main blog page to sub-folder blog:</p>
-<pre class="literal-block">
-INDEX_PATH = "blog"
-</pre>
-<p>and to build the html page at main directory. The page.tmpl is the template that we will edit later:</p>
-<pre class="literal-block">
-PAGES = (
-        ("pages/*.rst", "pages", "page.tmpl"),
-        ("pages/*.md", "pages", "page.tmpl"),
-        ("pages/*.txt", "pages", "page.tmpl"),
-        ("pages/*.html", "", "page.tmpl"),
-)
-</pre>
-<p class="last">Now you should have similar page like mine without those graphical icons which require 3rd party library. As I am using Cerulean theme, yours might look different. We will change the theme soon.</p>
-</dd>
-<dt>Add more tabs and drop-down menu on navigation bar</dt>
-<dd>
-<p class="first">For example:</p>
-<pre class="last literal-block">
-NAVIGATION_LINKS = {
-        DEFAULT_LANG: (
-                ((      ("/blog/","Timeline"),("/pages/lst-ex/","List of examples")     ), "Blog"),
-                ("/archive.html", "Archive"),
-                ("/categories/", "Tags"),
-                ("/rss.xml", "RSS feed"),
-                ("/pages/about-me/", "About"),
-        ),
-}
-</pre>
-</dd>
-<dt>Change theme and edit template</dt>
-<dd>
-<p class="first">Choose your favorite theme from <a class="reference external" href="https://bootswatch.com/">https://bootswatch.com/</a> then run this command with your favorite theme's name, for example, "cerulean":</p>
-<pre class="literal-block">
-nikola bootswatch_theme -s cerulean
-</pre>
-<p>Now your new theme is installed. You can modify your theme by tweaking in to the css file inside your new theme folder. In this case</p>
-<pre class="literal-block">
-theme/custom/asset
-</pre>
-<p>But we will get into that later. Now let's edit the templates by copying them from the base theme, in this case, bootstrap3:</p>
-<pre class="literal-block">
-nikola theme -c base.tmpl
-nikola theme -c base_helper.tmpl
-</pre>
-<p>This makes a copy of templates which overrides the parent template Bootstrap3. Firstly, have a look at base.tmpl, by default nikola inverse the navbar color. You can change navbar color to default.:</p>
-<pre class="literal-block">
-&lt;nav class="navbar navbar-default navbar-static-top"&gt;
-</pre>
-<p>In base_helper.tmpl we add a graphic library font-awesome. Go to <a class="reference external" href="https://fontawesome.com/get-started">https://fontawesome.com/get-started</a> and copy code similar to below and put it to roughly line 112 where you see other ccs libraries added:</p>
-<pre class="literal-block">
-&lt;link href="/fontawesome/fontawesome-all.css" rel="stylesheet"&gt;
-</pre>
-<p class="last">Now you can use icons on your pages</p>
-</dd>
-</dl>
-</div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/generating-an-empty-website/" class="u-url">An empty website and its folder structure.</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Warut Phothiphan
-            </span></p>
-            <p class="dateline"><a href="../posts/generating-an-empty-website/" rel="bookmark"><time class="published dt-published" datetime="2017-07-06T22:16:58+07:00" title="2017-07-06 22:16">2017-07-06 22:16</time></a></p>
-                <p class="commentline">
-        
-    <a href="../posts/generating-an-empty-website/#disqus_thread" data-disqus-identifier="cache/posts/generating-an-empty-website.html">Comments</a>
-
-
-        </p>
-</div>
-    </header><div class="p-summary entry-summary">
-    <div>
-<div class="sidebar">
-<p class="first sidebar-title">Tip: Demo site</p>
-<p>You can generate a website containing demo contents in it by using --demo option:</p>
-<pre class="last literal-block">
-nikola init --demo my_first_site
-</pre>
-</div>
-<p>Now let's generate an empty site with any name such as "my_first_site". Navigate your terminal to the directory that you want to put your project folder on. Then run this command and follow its instructions:</p>
-<pre class="literal-block">
-nikola init my_first_site
-</pre>
-<p>Then create your first post and it will ask you to input post title. Your post file .rst will be created in "posts" folder. We will edit the post later:</p>
-<pre class="literal-block">
-nikola new_post
-</pre>
-<p>Build your website:</p>
-<pre class="literal-block">
-nikola build
-</pre>
-<p>Let's see your empty website on the browser. The -b option will open your default web browser automatically:</p>
-<pre class="literal-block">
-nikola serve -b
-</pre>
-<p>Press Ctrl+C to stop your web server.</p>
-<div class="section" id="the-project-s-folder-structure">
-<h2>The project's folder structure.</h2>
-<p>After the initialization, you will get folder like this.</p>
-<img alt="Folder Structure" class="align-left" src="../pic/nikola-tut/folder_struc.JPG" style="width: 267.0px; height: 235.0px;"><table border="1" class="docutils">
-<colgroup>
-<col width="13%">
-<col width="87%">
-</colgroup>
-<tbody valign="top">
-<tr>
-<td><strong>Name</strong></td>
-<td><strong>Description</strong></td>
-</tr>
-<tr>
-<td>files</td>
-<td>Everything in here will be copied to your output folder.</td>
-</tr>
-<tr>
-<td>galleries</td>
-<td>Put your images folder here to generate gallery page.</td>
-</tr>
-<tr>
-<td>listings</td>
-<td>Put your code here to show it. (<a class="reference external" href="../pages/listings-demo">Learn more</a> )</td>
-</tr>
-<tr>
-<td>output</td>
-<td>Your generated website.</td>
-</tr>
-<tr>
-<td>pages</td>
-<td>All your pages are kept here.</td>
-</tr>
-<tr>
-<td>post</td>
-<td>All your posts are kept here.</td>
-</tr>
-<tr>
-<td>conf.py</td>
-<td>settings for Nikola.</td>
-</tr>
-</tbody>
-</table>
-<div class="line-block">
-<div class="line"><br></div>
-<div class="line"><br></div>
-</div>
-<p>Next post, we will customize our site.</p>
-</div>
-</div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/introduction-to-nikola/" class="u-url">Introduction to Nikola.</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Warut Phothiphan
-            </span></p>
-            <p class="dateline"><a href="../posts/introduction-to-nikola/" rel="bookmark"><time class="published dt-published" datetime="2017-07-06T22:13:28+07:00" title="2017-07-06 22:13">2017-07-06 22:13</time></a></p>
-                <p class="commentline">
-        
-    <a href="../posts/introduction-to-nikola/#disqus_thread" data-disqus-identifier="cache/posts/introduction-to-nikola.html">Comments</a>
-
-
-        </p>
-</div>
-    </header><div class="p-summary entry-summary">
-    <div>
-<p>Nikola is a static site and blog generator written in Python. Nikola-based sites don't run any code on the server, there is no way to process user input in forms. You can have animations, slides or whatever fancy CSS3/HTML5 thingie you like. It only means all that HTML is generated already before being uploaded.</p>
-<p>On the other hand, most "modern" websites are dynamic in the sense that the contents of the site live in a database, and are converted into HTML only when a user wants to see the page. However, on dynamic sites, every time a reader wants a page, a whole lot of database queries are made. Then a whole pile of code chews that data, and HTML is produced, which is sent to the user. All that requires CPU and memory.</p>
-<p>On a static site, the highly optimized HTTP server reads the file from disk (or, if it's a popular file, from disk cache), and sends it to the user. You could probably serve a bazillion (technical term) page views from a phone using static sites.</p>
-<p>Using Nikola on Windows can be a little trickier. Most tutorial out there are mostly based on Linux and MacOS. As a Windows user, I sometime failed to follow those tutorials. However, you will just have to get through it once then you will be fine. Let's get started.</p>
-<div class="section" id="preparing-a-development-environment">
-<h2>Preparing a development environment</h2>
-<p>Nikola runs on Python. So we need to install Python and necessary modules. All the modules will be installed inside an isolated Python virtual environment with it own libraries and site-packages. Virtual environment allows you to work on more than one project separately.</p>
-<p>Note that I am using windows. Some command-line syntax may differ from other operating systems. There are several ways to install modules on Python. If you are interested in this topic, I would recommend you to check this out <a class="reference external" href="https://www.youtube.com/user/sentdex">https://www.youtube.com/user/sentdex</a></p>
-<ol class="arabic">
-<li>
-<p class="first">Download and install the latest version of Python at <a class="reference external" href="https://www.python.org/downloads/release/python-361/">https://www.python.org/downloads/release/python-361/</a></p>
-</li>
-<li>
-<p class="first">Install virtualenv module by running this command in you terminal. In this case, the Windows command line (Start&gt;cmd):</p>
-<pre class="literal-block">
-py -m pip install virtualenv
-</pre>
-</li>
-<li>
-<p class="first">Install virtualenvwrapper-win. Using the virtualenv through this wrapper is much easier:</p>
-<pre class="literal-block">
-py -m pip install virtualenvwrapper-win
-</pre>
-</li>
-<li>
-<p class="first">Create a virtual environment with any name such as "nikola":</p>
-<pre class="literal-block">
-mkvirtualenv nikola
-</pre>
-</li>
-<li>
-<p class="first">Install Nikola package:</p>
-<pre class="literal-block">
-pip install --upgrade "Nikola[extras]"
-</pre>
-</li>
-</ol>
-<p>Now you are ready to generate the first website. The next post will teach you how to genrate a static website. I would reccomend you to check out your new environment folder at C:/Users/[username]/Envs. Also learn more about the virtualenvwrapper command on their mainpage.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">UPDATE 2018-05-15 : I have found a simpler way to create virtual environment and manage packages <a class="reference external" href="../posts/using-python-virtual-environment-with-anaconda">here</a></p>
-</div>
-</div>
-</div>
-    </div>
     </article>
 </div>
 
-
-
-        
-       <script>var disqus_shortname="gtopba";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+        <nav class="postindexpager"><ul class="pager">
+<li class="next">
+                <a href="index-1.html" rel="next">Older posts</a>
+            </li>
+        </ul></nav><script>var disqus_shortname="gtopba";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
 </div>
         <!--End of body content-->
 

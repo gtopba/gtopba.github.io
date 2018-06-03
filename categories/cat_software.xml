@@ -1,5 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gtopba (Posts about software)</title><link>https://gtopba.github.io/</link><description></description><atom:link href="https://gtopba.github.io/categories/cat_software.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2018 &lt;a href="mailto:gtopba@gmail.com"&gt;Warut Phothiphan&lt;/a&gt; </copyright><lastBuildDate>Thu, 24 May 2018 10:33:27 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Github Fork, Sync Fork</title><link>https://gtopba.github.io/posts/github-fork-sync-fork/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;div class="section" id="fork"&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gtopba (Posts about software)</title><link>https://gtopba.github.io/</link><description></description><atom:link href="https://gtopba.github.io/categories/cat_software.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2018 &lt;a href="mailto:gtopba@gmail.com"&gt;Warut Phothiphan&lt;/a&gt; </copyright><lastBuildDate>Sun, 03 Jun 2018 19:06:48 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Adding an existing project to GitHub</title><link>https://gtopba.github.io/posts/adding-an-existing-project-to-github/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;ol class="arabic"&gt;
+&lt;li&gt;&lt;p class="first"&gt;Create a new repository on GitHub. To avoid errors, do not initialize the new repository with README, license, or gitignore files. You can add these files after your project has been pushed to GitHub.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Initialize the local directory as a Git repository.:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git init
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Add the files in your new local repository. This stages them for the first commit. '.' means all files:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git add .
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Commit the files that you've staged in your local repository.:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git commit -m "First commit"
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;add the URL for the remote repository where your local repository will be pushed.:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git remote add origin remote repository URL
+git remote -v
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;Push the changes in your local repository to GitHub.:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git push origin master
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="section" id="references"&gt;
+&lt;h2&gt;References&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/"&gt;Adding an existing project to GitHub using the command line&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>github</category><guid>https://gtopba.github.io/posts/adding-an-existing-project-to-github/</guid><pubDate>Sun, 03 Jun 2018 18:48:57 GMT</pubDate></item><item><title>My github workflow</title><link>https://gtopba.github.io/posts/my-github-workflow/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;p&gt;Select branch e.g. master branch. the current branch is called HEAD:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git checkout master
+&lt;/pre&gt;
+&lt;p&gt;check HEAD:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+cat .git/HEAD
+&lt;/pre&gt;
+&lt;p&gt;modify the code then commit:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git commit -m "leave some note here"
+&lt;/pre&gt;
+&lt;p&gt;we might want to undo commit:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git reset --hard HEAD~1
+&lt;/pre&gt;
+&lt;p&gt;or undo to specified commit:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git reset --hard commit_sha
+&lt;/pre&gt;
+&lt;p&gt;check your local branch with the remote:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git status
+&lt;/pre&gt;
+&lt;p&gt;push the local commits to remote branch e.g. remote name "origin", branch name "master":&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git push origin master
+&lt;/pre&gt;
+&lt;p&gt;more common command check:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+git help everyday
+&lt;/pre&gt;&lt;/div&gt;</description><category>github</category><guid>https://gtopba.github.io/posts/my-github-workflow/</guid><pubDate>Sun, 03 Jun 2018 18:48:13 GMT</pubDate></item><item><title>grep searches for PATTERN.</title><link>https://gtopba.github.io/posts/grep-searches-for-pattern/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;p&gt;grep searches for PATTERN in each FILE. A FILE of “-” stands for standard input. If no FILE is given, recursive searches examine the working  directory, and nonrecursive searches read standard input. By default, grep prints the matching lines.:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+grep -rnw '/path/to/somewhere/' -e 'pattern'
+&lt;/pre&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;-r or -R  is recursive,&lt;/li&gt;
+&lt;li&gt;-n is line number, and&lt;/li&gt;
+&lt;li&gt;-w stands for match the whole word.&lt;/li&gt;
+&lt;li&gt;-l (lower-case L) can be added to just give the file name of matching files.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Along with these, --exclude, --include, --exclude-dir flags could be used for efficient searching.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p class="first"&gt;This will only search through those files which have .c or .h extensions:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+grep --include=\*.{c,h} -rnw '/path/to/somewhere/' -e "pattern"
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;This will exclude searching all the files ending with .o extension:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+grep --exclude=*.o -rnw '/path/to/somewhere/' -e "pattern"
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="first"&gt;For directories it's possible to exclude a particular directory(ies) through --exclude-dirDocuments parameter. For example, this will exclude the dirs dir1/, dir2/ and all of them matching .dst/:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+grep --exclude-dir={dir1,dir2,*.dst} -rnw '/path/to/somewhere/' -e "pattern"
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For more options check man grep.&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="references"&gt;
+&lt;h2&gt;References&lt;/h2&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://stackoverflow.com/questions/16956810/how-do-i-find-all-files-containing-specific-text-on-linux"&gt;rakib_&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>linux</category><guid>https://gtopba.github.io/posts/grep-searches-for-pattern/</guid><pubDate>Fri, 25 May 2018 04:28:01 GMT</pubDate></item><item><title>Github Fork, Sync Fork</title><link>https://gtopba.github.io/posts/github-fork-sync-fork/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;div class="section" id="fork"&gt;
 &lt;h2&gt;Fork&lt;/h2&gt;
 &lt;p&gt;In the top-right corner of the page, click Fork. That's it! Now, you have a fork of the original repository. You can now modified your fork without effecting the original repo. New commits from the main repo won't effect your fork. You need to manually sync your fork with the original repo.&lt;/p&gt;
 &lt;/div&gt;
@@ -16,19 +115,19 @@ git remote add upstream https://github.com/ORIGINAL-OWNER/ORIGINAL-REPO.git
 git remote -v
 git fetch upstream
 &lt;/pre&gt;
-&lt;p&gt;Check out your fork's local master branch.:&lt;/p&gt;
+&lt;p&gt;Check out your fork's local branch.:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
-git checkout master
+git checkout edge
 &lt;/pre&gt;
-&lt;p&gt;Merge the changes from upstream/master into your local master branch. This brings your fork's master branch into sync with the upstream repository, without losing your local changes.:&lt;/p&gt;
+&lt;p&gt;Merge the changes from upstream/edge into your local edge branch. This brings your fork's edge branch into sync with the upstream repository, without losing your local changes.:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
-git merge upstream/master
+git merge upstream/edge
 &lt;/pre&gt;
 &lt;p&gt;push commits made on your local branch to a remote repository.:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 git push  &amp;lt;REMOTENAME&amp;gt; &amp;lt;BRANCHNAME&amp;gt;
 &lt;/pre&gt;
-&lt;p&gt;As an example, you usually run git push origin master to push your local changes to your online repository.&lt;/p&gt;
+&lt;p&gt;As an example, you usually run git push origin edge to push your local changes to your online repository.&lt;/p&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
 &lt;/div&gt;

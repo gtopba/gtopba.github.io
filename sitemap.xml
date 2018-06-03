@@ -19,15 +19,19 @@
  </url>
  <url>
   <loc>https://gtopba.github.io/archive.html</loc>
-  <lastmod>2018-05-24T10:38:00Z</lastmod>
+  <lastmod>2018-06-03T19:00:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/blog/</loc>
-  <lastmod>2018-05-24T10:33:00Z</lastmod>
+  <lastmod>2018-05-25T04:35:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/blog/index-1.html</loc>
+  <lastmod>2018-06-03T19:00:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/categories/</loc>
-  <lastmod>2018-05-24T10:33:00Z</lastmod>
+  <lastmod>2018-05-25T04:35:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/categories/bootstrap/</loc>
@@ -60,6 +64,10 @@
  <url>
   <loc>https://gtopba.github.io/categories/github/</loc>
   <lastmod>2018-05-24T10:33:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/categories/linux/</loc>
+  <lastmod>2018-05-25T04:35:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/categories/nikola/</loc>
@@ -190,6 +198,10 @@
   <lastmod>2018-05-24T10:33:00Z</lastmod>
  </url>
  <url>
+  <loc>https://gtopba.github.io/posts/adding-an-existing-project-to-github/</loc>
+  <lastmod>2018-06-03T19:00:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://gtopba.github.io/posts/compile-smoothieware-from-source/</loc>
   <lastmod>2018-05-24T10:33:00Z</lastmod>
  </url>
@@ -222,8 +234,16 @@
   <lastmod>2018-05-24T10:33:00Z</lastmod>
  </url>
  <url>
+  <loc>https://gtopba.github.io/posts/grep-searches-for-pattern/</loc>
+  <lastmod>2018-05-25T04:35:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://gtopba.github.io/posts/introduction-to-nikola/</loc>
   <lastmod>2018-05-24T10:33:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://gtopba.github.io/posts/my-github-workflow/</loc>
+  <lastmod>2018-06-03T19:00:00Z</lastmod>
  </url>
  <url>
   <loc>https://gtopba.github.io/posts/using-python-virtual-environment-with-anaconda/</loc>
