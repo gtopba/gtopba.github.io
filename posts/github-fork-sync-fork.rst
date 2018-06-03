@@ -24,19 +24,19 @@ sync your fork with the original repository::
 	git remote -v
 	git fetch upstream
 	
-Check out your fork's local master branch.::
+Check out your fork's local branch.::
 
-	git checkout master 
+	git checkout edge 
 	
-Merge the changes from upstream/master into your local master branch. This brings your fork's master branch into sync with the upstream repository, without losing your local changes.::
+Merge the changes from upstream/edge into your local edge branch. This brings your fork's edge branch into sync with the upstream repository, without losing your local changes.::
 	
-	git merge upstream/master
+	git merge upstream/edge
 	
 push commits made on your local branch to a remote repository.::
 
 	git push  <REMOTENAME> <BRANCHNAME> 
 	
-As an example, you usually run git push origin master to push your local changes to your online repository.
+As an example, you usually run git push origin edge to push your local changes to your online repository.
 
 |
 
