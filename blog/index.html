@@ -79,7 +79,57 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/adding-an-existing-project-to-github/" class="u-url">Adding an existing project to GitHub</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/airbag-crash-data-reset/" class="u-url">Airbag crash data reset</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Warut Phothiphan
+            </span></p>
+            <p class="dateline"><a href="../posts/airbag-crash-data-reset/" rel="bookmark"><time class="published dt-published" datetime="2018-06-16T10:23:07+07:00" title="2018-06-16 10:23">2018-06-16 10:23</time></a></p>
+                <p class="commentline">
+        
+    <a href="../posts/airbag-crash-data-reset/#disqus_thread" data-disqus-identifier="cache/posts/airbag-crash-data-reset.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div>
+<p>After a collision and the airbags are deployed, the airbag controller stores information such as speed, RPM, seat belt, accelerometer, pre-tensioner that can be used for investigation. These crash data need to be replaced, if the vehicle is rebuilt. Otherwise the airbag light will stay solid and the vehicle might not perform correctly. The crash data is stores in the EEPROM chip, which can be read/write via a cheap programmer. A virgin data is copied from another vehicle's controller, which then will be used to replaced the crash data inside the EEPROM.</p>
+<div class="figure align-center">
+<img alt="/pic/airbag/L56R_EEPROM.jpg" src="../pic/airbag/L56R_EEPROM.jpg" style="width: 431.6px; height: 576.0px;"><p class="caption">L56R EEPROM</p>
+</div>
+<p>The closest datasheet to the L56R EEPROM I found was BR93L56F, the Microwire BUS 2Kbit(128x16bit) EEPROM.</p>
+<div class="figure align-center">
+<img alt="/pic/airbag/Pin_configurations.PNG" src="../pic/airbag/Pin_configurations.PNG" style="width: 542.0px; height: 219.0px;"><p class="caption">Pin configurations</p>
+</div>
+<p>The programmer is MiniPro TL866A from Aliexpress. Reading the EEPROM in circuit using SOP8 clip was not successful even the crystal was shorted out. So the EEPROM has to be removed from the board to be able to read/write with the SOP8 socket.</p>
+<div class="figure align-center">
+<img alt="/pic/airbag/programer.jpg" src="../pic/airbag/programer.jpg" style="width: 576.0px; height: 432.0px;"><p class="caption">The programmer with SOP8 socket</p>
+</div>
+<p>The virgin data is copied from the good EEPROM and replaced into the bad EEPROM.</p>
+<div class="figure align-center">
+<img alt="/pic/airbag/good-bad-board.jpg" src="../pic/airbag/good-bad-board.jpg" style="width: 466.8px; height: 431.6px;"><p class="caption">Copying good data to replace crash data.</p>
+</div>
+<p>Connect the programmer to a computer and open the software MiniPro Programmer. Select IC the click Read</p>
+<div class="figure">
+<img alt="/pic/airbag/MiniPro.PNG" src="../pic/airbag/MiniPro.PNG"><p class="caption">Select IC and Read</p>
+</div>
+<p>Successfully reading the EEPROM from the good board.</p>
+<div class="figure">
+<img alt="/pic/airbag/MiniPro_Read.PNG" src="../pic/airbag/MiniPro_Read.PNG"><p class="caption">Read success</p>
+</div>
+<p>Read several time to make sure the read data is correct. Insert the bad EEPROM to the programmer and click Program</p>
+<div class="figure">
+<img alt="/pic/airbag/MiniPro_Data.PNG" src="../pic/airbag/MiniPro_Data.PNG"><p class="caption">Good data ready for writing into bad EEPROM</p>
+</div>
+<p>Programming successful!! Read data back to verify the data is all correct. Install the EEPROM back to the board</p>
+<div class="figure">
+<img alt="/pic/airbag/MiniPro_Write.PNG" src="../pic/airbag/MiniPro_Write.PNG"><p class="caption">Programming successful</p>
+</div>
+<p>After installing the controller back to the vehicle, the airbag light should now turned off.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/adding-an-existing-project-to-github/" class="u-url">Adding an existing project to GitHub</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Warut Phothiphan
@@ -789,60 +839,6 @@ pip install --upgrade "Nikola[extras]"
 </pre>
 </dd>
 </dl>
-</div>
-    </div>
-    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/deploying-the-static-website-to-github/" class="u-url">Deploying the static website to GitHub.</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                Warut Phothiphan
-            </span></p>
-            <p class="dateline"><a href="../posts/deploying-the-static-website-to-github/" rel="bookmark"><time class="published dt-published" datetime="2017-07-06T22:24:34+07:00" title="2017-07-06 22:24">2017-07-06 22:24</time></a></p>
-                <p class="commentline">
-        
-    <a href="../posts/deploying-the-static-website-to-github/#disqus_thread" data-disqus-identifier="cache/posts/deploying-the-static-website-to-github.html">Comments</a>
-
-
-        </p>
-</div>
-    </header><div class="p-summary entry-summary">
-    <div>
-<p>Assuming you already created a github.io repository following the instruction from this link <a class="reference external" href="https://pages.github.com/">https://pages.github.com/</a> and already install the 'Git&lt;<a class="reference external" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>&gt;'_ software according to your operating system. Given the original 'github_deploy&lt;<a class="reference external" href="https://getnikola.com/handbook.html#deploying-to-github">https://getnikola.com/handbook.html#deploying-to-github</a>&gt;'_ tutorial, I will explain more where you might get confused.</p>
-<p>Initialize a git repository in your Nikola source directory by running:</p>
-<pre class="literal-block">
-git init.
-git remote add origin git@github.com:user/repository.git
-</pre>
-<ul class="simple">
-<li>user : your Github username, for example, "deadbeef"</li>
-<li>repository : your github.io repository, for example, deadbeef.github.io.git</li>
-</ul>
-<p>so the command should be:</p>
-<pre class="literal-block">
-git remote add origin git@github.com:deadbeef/deadbeef.github.io.git
-</pre>
-<p>Then, setup conf.py:</p>
-<pre class="literal-block">
-GITHUB_SOURCE_BRANCH = 'src'
-GITHUB_DEPLOY_BRANCH = 'master'
-GITHUB_REMOTE_NAME = 'origin'
-GITHUB_COMMIT_SOURCE = True
-</pre>
-<ul class="simple">
-<li>'src' means your Nikola source branch's name is src</li>
-<li>'master' means your compiled static website branch's name is master</li>
-</ul>
-<p>Create a .gitignore file containing:</p>
-<pre class="literal-block">
-cache
-.doit.db
-__pycache__
-output
-</pre>
-<p>Finally, deploying:</p>
-<pre class="literal-block">
-nikola github_deploy
-</pre>
-<p>first time it will ask you to log in to your github account. Then, you should be able to access you website <a class="reference external" href="https://deadbeef.github.io">https://deadbeef.github.io</a></p>
 </div>
     </div>
     </article>

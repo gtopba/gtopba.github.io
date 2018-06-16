@@ -79,7 +79,61 @@
 
     
 <div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/customizing-the-website/" class="u-url">Customizing the website.</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/deploying-the-static-website-to-github/" class="u-url">Deploying the static website to GitHub.</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                Warut Phothiphan
+            </span></p>
+            <p class="dateline"><a href="../posts/deploying-the-static-website-to-github/" rel="bookmark"><time class="published dt-published" datetime="2017-07-06T22:24:34+07:00" title="2017-07-06 22:24">2017-07-06 22:24</time></a></p>
+                <p class="commentline">
+        
+    <a href="../posts/deploying-the-static-website-to-github/#disqus_thread" data-disqus-identifier="cache/posts/deploying-the-static-website-to-github.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div>
+<p>Assuming you already created a github.io repository following the instruction from this link <a class="reference external" href="https://pages.github.com/">https://pages.github.com/</a> and already install the 'Git&lt;<a class="reference external" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>&gt;'_ software according to your operating system. Given the original 'github_deploy&lt;<a class="reference external" href="https://getnikola.com/handbook.html#deploying-to-github">https://getnikola.com/handbook.html#deploying-to-github</a>&gt;'_ tutorial, I will explain more where you might get confused.</p>
+<p>Initialize a git repository in your Nikola source directory by running:</p>
+<pre class="literal-block">
+git init.
+git remote add origin git@github.com:user/repository.git
+</pre>
+<ul class="simple">
+<li>user : your Github username, for example, "deadbeef"</li>
+<li>repository : your github.io repository, for example, deadbeef.github.io.git</li>
+</ul>
+<p>so the command should be:</p>
+<pre class="literal-block">
+git remote add origin git@github.com:deadbeef/deadbeef.github.io.git
+</pre>
+<p>Then, setup conf.py:</p>
+<pre class="literal-block">
+GITHUB_SOURCE_BRANCH = 'src'
+GITHUB_DEPLOY_BRANCH = 'master'
+GITHUB_REMOTE_NAME = 'origin'
+GITHUB_COMMIT_SOURCE = True
+</pre>
+<ul class="simple">
+<li>'src' means your Nikola source branch's name is src</li>
+<li>'master' means your compiled static website branch's name is master</li>
+</ul>
+<p>Create a .gitignore file containing:</p>
+<pre class="literal-block">
+cache
+.doit.db
+__pycache__
+output
+</pre>
+<p>Finally, deploying:</p>
+<pre class="literal-block">
+nikola github_deploy
+</pre>
+<p>first time it will ask you to log in to your github account. Then, you should be able to access you website <a class="reference external" href="https://deadbeef.github.io">https://deadbeef.github.io</a></p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="../posts/customizing-the-website/" class="u-url">Customizing the website.</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 Warut Phothiphan

@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gtopba</title><link>https://gtopba.github.io/</link><description>As I'm getting older, my brain's memory is getting poorer. This blog is my second memory back up.</description><atom:link href="https://gtopba.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2018 &lt;a href="mailto:gtopba@gmail.com"&gt;Warut Phothiphan&lt;/a&gt; </copyright><lastBuildDate>Sun, 03 Jun 2018 19:06:48 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Adding an existing project to GitHub</title><link>https://gtopba.github.io/posts/adding-an-existing-project-to-github/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;ol class="arabic"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gtopba</title><link>https://gtopba.github.io/</link><description>As I'm getting older, my brain's memory is getting poorer. This blog is my second memory back up.</description><atom:link href="https://gtopba.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2018 &lt;a href="mailto:gtopba@gmail.com"&gt;Warut Phothiphan&lt;/a&gt; </copyright><lastBuildDate>Sat, 16 Jun 2018 05:27:24 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Airbag crash data reset</title><link>https://gtopba.github.io/posts/airbag-crash-data-reset/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;p&gt;After a collision and the airbags are deployed, the airbag controller stores information such as speed, RPM, seat belt, accelerometer, pre-tensioner that can be used for investigation. These crash data need to be replaced, if the vehicle is rebuilt. Otherwise the airbag light will stay solid and the vehicle might not perform correctly. The crash data is stores in the EEPROM chip, which can be read/write via a cheap programmer. A virgin data is copied from another vehicle's controller, which then will be used to replaced the crash data inside the EEPROM.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="/pic/airbag/L56R_EEPROM.jpg" src="https://gtopba.github.io/pic/airbag/L56R_EEPROM.jpg" style="width: 431.6px; height: 576.0px;"&gt;
+&lt;p class="caption"&gt;L56R EEPROM&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The closest datasheet to the L56R EEPROM I found was BR93L56F, the Microwire BUS 2Kbit(128x16bit) EEPROM.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="/pic/airbag/Pin_configurations.PNG" src="https://gtopba.github.io/pic/airbag/Pin_configurations.PNG" style="width: 542.0px; height: 219.0px;"&gt;
+&lt;p class="caption"&gt;Pin configurations&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The programmer is MiniPro TL866A from Aliexpress. Reading the EEPROM in circuit using SOP8 clip was not successful even the crystal was shorted out. So the EEPROM has to be removed from the board to be able to read/write with the SOP8 socket.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="/pic/airbag/programer.jpg" src="https://gtopba.github.io/pic/airbag/programer.jpg" style="width: 576.0px; height: 432.0px;"&gt;
+&lt;p class="caption"&gt;The programmer with SOP8 socket&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The virgin data is copied from the good EEPROM and replaced into the bad EEPROM.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="/pic/airbag/good-bad-board.jpg" src="https://gtopba.github.io/pic/airbag/good-bad-board.jpg" style="width: 466.8px; height: 431.6px;"&gt;
+&lt;p class="caption"&gt;Copying good data to replace crash data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Connect the programmer to a computer and open the software MiniPro Programmer. Select IC the click Read&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="/pic/airbag/MiniPro.PNG" src="https://gtopba.github.io/pic/airbag/MiniPro.PNG"&gt;
+&lt;p class="caption"&gt;Select IC and Read&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Successfully reading the EEPROM from the good board.&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="/pic/airbag/MiniPro_Read.PNG" src="https://gtopba.github.io/pic/airbag/MiniPro_Read.PNG"&gt;
+&lt;p class="caption"&gt;Read success&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Read several time to make sure the read data is correct. Insert the bad EEPROM to the programmer and click Program&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="/pic/airbag/MiniPro_Data.PNG" src="https://gtopba.github.io/pic/airbag/MiniPro_Data.PNG"&gt;
+&lt;p class="caption"&gt;Good data ready for writing into bad EEPROM&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Programming successful!! Read data back to verify the data is all correct. Install the EEPROM back to the board&lt;/p&gt;
+&lt;div class="figure"&gt;
+&lt;img alt="/pic/airbag/MiniPro_Write.PNG" src="https://gtopba.github.io/pic/airbag/MiniPro_Write.PNG"&gt;
+&lt;p class="caption"&gt;Programming successful&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;After installing the controller back to the vehicle, the airbag light should now turned off.&lt;/p&gt;&lt;/div&gt;</description><category>EEPROM</category><category>embedded</category><guid>https://gtopba.github.io/posts/airbag-crash-data-reset/</guid><pubDate>Sat, 16 Jun 2018 03:23:07 GMT</pubDate></item><item><title>Adding an existing project to GitHub</title><link>https://gtopba.github.io/posts/adding-an-existing-project-to-github/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;ol class="arabic"&gt;
 &lt;li&gt;&lt;p class="first"&gt;Create a new repository on GitHub. To avoid errors, do not initialize the new repository with README, license, or gitignore files. You can add these files after your project has been pushed to GitHub.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p class="first"&gt;Initialize the local directory as a Git repository.:&lt;/p&gt;
@@ -558,40 +598,4 @@ python flatcam
 pip install --upgrade "Nikola[extras]"
 &lt;/pre&gt;
 &lt;/dd&gt;
-&lt;/dl&gt;&lt;/div&gt;</description><guid>https://gtopba.github.io/posts/using-python-virtual-environment-with-anaconda/</guid><pubDate>Tue, 15 May 2018 04:41:20 GMT</pubDate></item><item><title>Deploying the static website to GitHub.</title><link>https://gtopba.github.io/posts/deploying-the-static-website-to-github/</link><dc:creator>Warut Phothiphan</dc:creator><description>&lt;div&gt;&lt;p&gt;Assuming you already created a github.io repository following the instruction from this link &lt;a class="reference external" href="https://pages.github.com/"&gt;https://pages.github.com/&lt;/a&gt; and already install the 'Git&amp;lt;&lt;a class="reference external" href="https://git-scm.com/downloads"&gt;https://git-scm.com/downloads&lt;/a&gt;&amp;gt;'_ software according to your operating system. Given the original 'github_deploy&amp;lt;&lt;a class="reference external" href="https://getnikola.com/handbook.html#deploying-to-github"&gt;https://getnikola.com/handbook.html#deploying-to-github&lt;/a&gt;&amp;gt;'_ tutorial, I will explain more where you might get confused.&lt;/p&gt;
-&lt;p&gt;Initialize a git repository in your Nikola source directory by running:&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-git init.
-git remote add origin git@github.com:user/repository.git
-&lt;/pre&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;user : your Github username, for example, "deadbeef"&lt;/li&gt;
-&lt;li&gt;repository : your github.io repository, for example, deadbeef.github.io.git&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;so the command should be:&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-git remote add origin git@github.com:deadbeef/deadbeef.github.io.git
-&lt;/pre&gt;
-&lt;p&gt;Then, setup conf.py:&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-GITHUB_SOURCE_BRANCH = 'src'
-GITHUB_DEPLOY_BRANCH = 'master'
-GITHUB_REMOTE_NAME = 'origin'
-GITHUB_COMMIT_SOURCE = True
-&lt;/pre&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;'src' means your Nikola source branch's name is src&lt;/li&gt;
-&lt;li&gt;'master' means your compiled static website branch's name is master&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Create a .gitignore file containing:&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-cache
-.doit.db
-__pycache__
-output
-&lt;/pre&gt;
-&lt;p&gt;Finally, deploying:&lt;/p&gt;
-&lt;pre class="literal-block"&gt;
-nikola github_deploy
-&lt;/pre&gt;
-&lt;p&gt;first time it will ask you to log in to your github account. Then, you should be able to access you website &lt;a class="reference external" href="https://deadbeef.github.io"&gt;https://deadbeef.github.io&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</description><category>git</category><category>github</category><category>nikola</category><guid>https://gtopba.github.io/posts/deploying-the-static-website-to-github/</guid><pubDate>Thu, 06 Jul 2017 15:24:34 GMT</pubDate></item></channel></rss>
+&lt;/dl&gt;&lt;/div&gt;</description><guid>https://gtopba.github.io/posts/using-python-virtual-environment-with-anaconda/</guid><pubDate>Tue, 15 May 2018 04:41:20 GMT</pubDate></item></channel></rss>
